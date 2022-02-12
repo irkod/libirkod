@@ -1,0 +1,15 @@
+#ifndef IRKOD_SEQUENCE_I_H
+#define IRKOD_SEQUENCE_I_H
+
+#include "irkod/thing/thing.h"
+
+IRKOD_THING_DECLARE_I_ID(irkod_sequence);
+
+struct irkod_sequence_i
+{
+	void (*reset)(struct irkod_thing *it);
+	int (*peek)(struct irkod_thing *it, void **object);
+	void (*next)(struct irkod_thing *it);
+};
+
+#endif /* !IRKOD_SEQUENCE_I_H */

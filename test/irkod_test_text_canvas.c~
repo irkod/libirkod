@@ -1,0 +1,57 @@
+#include <stdio.h>
+#include <malloc.h>
+#include <string.h>
+#include <wchar.h>
+#include <stdlib.h>
+#include <locale.h>
+#include "irkod/irkod.h"
+
+const char *main_text_program_id = "main_text";
+IRKOD_FAIL_FILE(main_text_program_id);
+
+int main()
+{
+	IRKOD_FAIL_ROOT;
+	IRKOD_FAIL_NEXT_WITH_RESULT(0);
+
+	setlocale(LC_ALL, "");
+	struct irkod_text_canvas *tc = irkod_text_canvas_new(IRKOD_FAIL);
+	irkod_text_canvas_init(tc);
+	struct irkod_text_canvas_i *tc_canvas_i = irkod_text_canvas_geti(IRKOD_THING(tc));
+	struct irkod_row_cursor_i *tc_cursor_i = irkod_row_cursor_geti(IRKOD_THING(tc));
+
+
+	tc_canvas_i->resize(IRKOD_THING(tc), 20, 40, IRKOD_FAIL);
+
+	for(int r = 0; r < 20; r++)
+		for(int c = 0; c < 40; c++)
+		{
+			tc_canvas_i->put(IRKOD_THING(tc), r, c, "ć", IRKOD_FAIL);
+			IRKOD_FAIL_PRINT(stdout);
+		}
+
+	int k = 0;
+	int i = 0;
+
+	for(;;)
+	{
+		int size = tc_canvas_i->put(IRKOD_THING(tc), 0, k++, "zażółć gęślą jaźń!" + i, IRKOD_FAIL);
+		i += size;
+
+		if(!size)
+			break;
+
+		IRKOD_FAIL_PRINT(stdout);
+	}
+
+	tc_cursor_i->set(IRKOD_THING(tc), 3);
+	tc_canvas_i->print(IRKOD_THING(tc), stdout, IRKOD_FAIL);
+	tc_canvas_i->resize(IRKOD_THING(tc), 10, 30, IRKOD_FAIL);
+	
+	IRKOD_THING_DETACH(IRKOD_THING(tc));
+
+	IRKOD_FAIL_PRINT(stdout);
+	
+	IRKOD_FAIL_ROOT_FREE;
+	return 0;
+}

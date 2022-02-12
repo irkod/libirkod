@@ -1,0 +1,183 @@
+#include <assert.h>
+#include <stddef.h>
+#include <irkod/thing/list.h>
+#include <irkod/thing/node.h>
+#include <irkod/i/sequence_i.h>
+#include <irkod/i/size_i.h>
+#include <irkod/i/keeper_i.h>
+#include <irkod/fail/failure/attach_count.h>
+#include <irkod/fail/failure/call.h>
+#include <irkod/fail/failure/malloc.h>
+
+IRKOD_FAIL_FILE(irkod_module_id);
+IRKOD_THING_DECLARE;
+
+static void irkod_sequence_i_reset(struct irkod_thing *it);
+static int irkod_sequence_i_peek(struct irkod_thing *it, void **object);
+static void irkod_sequence_i_next(struct irkod_thing *it);
+static size_t irkod_size_i_get(const struct irkod_thing *it);
+static void irkod_keeper_i_add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM);
+static void irkod_keeper_i_clear(struct irkod_thing *it);
+
+IRKOD_THING_WITH_CLEAR_DEFINE(irkod_list);
+IRKOD_THING_DEFINE_FUNCTION_NEW(irkod_list);
+
+static struct irkod_sequence_i irkod_sequence_i =
+{
+	irkod_sequence_i_reset,
+	irkod_sequence_i_peek,
+	irkod_sequence_i_next
+};
+
+static struct irkod_size_i irkod_size_i =
+{
+	irkod_size_i_get
+};
+
+static struct irkod_keeper_i irkod_keeper_i =
+{
+	irkod_keeper_i_add,
+	irkod_keeper_i_clear
+};
+
+static void* 
+irkod_thing_i_get_i(struct irkod_thing *it, irkod_thing_i_id_t *id)
+{
+	if (id == &irkod_sequence_i_id)
+		return &irkod_sequence_i;
+	else if(id == &irkod_size_i_id)
+		return &irkod_size_i;
+	else if(id == &irkod_keeper_i_id)
+		return &irkod_keeper_i;
+	else
+		return NULL;
+
+}
+
+void irkod_list_init(struct irkod_list *obj)
+{
+	assert(obj);
+
+	IRKOD_THING_INIT(obj);
+	obj->first = NULL;	
+	obj->last = NULL;
+	obj->sequence = NULL;
+	obj->size = 0;	
+}
+
+void irkod_list_clear(struct irkod_list *list)
+{
+	assert(list);
+
+	while(list->first)
+		irkod_node_remove(list->first);
+}
+
+void irkod_list_append(struct irkod_list *list, struct irkod_node *node)
+{
+	assert(list);
+	assert(node);
+
+	if(!list->size)
+	{
+		assert(!list->first);
+		assert(!list->last);
+
+		list->first = node;
+		list->last = node;
+		node->list = list;
+		list->size = 1;
+	}
+	else
+	{
+		assert(list->first);
+		assert(list->last);
+
+		irkod_node_append(list->last, node);
+	}
+
+	assert(list->size);
+}
+
+size_t irkod_list_get_size(const struct irkod_list *list)
+{
+	assert(list);
+
+	return list->size;
+}
+
+void irkod_sequence_i_reset(struct irkod_thing *it)
+{
+	assert(it);
+
+	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+	
+	list->sequence = list->first;
+}
+
+int irkod_sequence_i_peek(struct irkod_thing *it, void **object)
+{
+	assert(it);
+	assert(object);
+	
+	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	if(!list->sequence)
+		return 0;
+	
+	*object = list->sequence->object;
+	return 1;
+}
+
+void irkod_sequence_i_next(struct irkod_thing *it)
+{
+	assert(it);
+
+	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	if(list->sequence)
+		list->sequence = list->sequence->next;
+
+}
+
+size_t irkod_size_i_get(const struct irkod_thing *it)
+{
+	assert(it);
+	const struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	return list->size;
+}
+
+void irkod_keeper_i_add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM)
+{
+	IRKOD_FAIL_NEXT;
+
+	assert(it);
+	assert(node);
+
+	struct irkod_thing *object = irkod_node_get_object(node);
+	
+	IRKOD_THING_ATTACH(object, IRKOD_FAIL);
+
+	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
+
+	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	irkod_list_append(list, node);
+}
+
+void irkod_keeper_i_clear(struct irkod_thing *it)
+{
+	assert(it);
+
+	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	while(list->first)
+	{
+		struct irkod_thing *it = irkod_node_remove(list->first);
+		
+		assert(it);
+
+		IRKOD_THING_DETACH(it);
+	}
+}

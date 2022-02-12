@@ -1,0 +1,7 @@
+#ifndef IRKOD_MPRINTF_H
+#define IRKOD_MPRINTF_H
+
+char *irkod_mprintf(const char *format, ...);
+
+#endif /* !IRKOD_MPRINTF_H */
+
