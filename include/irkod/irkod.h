@@ -12,6 +12,7 @@
 #include <irkod/grid.h>
 #include <irkod/grid_field_data.h>
 #include <irkod/grid_line_data.h>
+#include <irkod/i_dump.h>
 #include <irkod/i_fail_details.h>
 #include <irkod/i_grid_field.h>
 #include <irkod/i_grid_line.h>
@@ -31,7 +32,6 @@
 #include <irkod/thing.h>
 
 /*
-#include <irkod/i/dump_i.h>
 #include <irkod/i/id_i.h>
 */
 

@@ -1,0 +1,14 @@
+#ifndef ISZ_I_DUMP_H
+#define ISZ_I_DUMP_H
+
+#include "isz/it/it.h"
+#include "isz/fail/fail.h"
+
+ISZ_IT_INTERFACE_ID_DECLARE(isz_dump);
+
+struct isz_dump_i_t
+{
+	struct isz_it *(*get)(void *vobj, ISZ_FAIL_PARAM);
+};
+
+#endif /* !ISZ_I_DUMP_H */

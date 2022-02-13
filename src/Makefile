@@ -111,15 +111,16 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_fail_failure_malloc.$(OBJEXT) \
 	irkod_fail_failure_mb.$(OBJEXT) irkod_grid.$(OBJEXT) \
 	irkod_grid_field_data.$(OBJEXT) irkod_grid_line_data.$(OBJEXT) \
-	irkod_i_fail_details.$(OBJEXT) irkod_i_grid_field.$(OBJEXT) \
-	irkod_i_grid_line.$(OBJEXT) irkod_i_keeper.$(OBJEXT) \
-	irkod_i_row_cursor.$(OBJEXT) irkod_i_sequence.$(OBJEXT) \
-	irkod_i_size.$(OBJEXT) irkod_i_str.$(OBJEXT) \
-	irkod_i_str_owner.$(OBJEXT) irkod_i_text_canvas.$(OBJEXT) \
-	irkod_list.$(OBJEXT) irkod_mprintf.$(OBJEXT) \
-	irkod_node.$(OBJEXT) irkod_page_field_text.$(OBJEXT) \
-	irkod_page_line.$(OBJEXT) irkod_text.$(OBJEXT) \
-	irkod_text_canvas.$(OBJEXT) irkod_thing.$(OBJEXT)
+	irkod_i_dump.$(OBJEXT) irkod_i_fail_details.$(OBJEXT) \
+	irkod_i_grid_field.$(OBJEXT) irkod_i_grid_line.$(OBJEXT) \
+	irkod_i_keeper.$(OBJEXT) irkod_i_row_cursor.$(OBJEXT) \
+	irkod_i_sequence.$(OBJEXT) irkod_i_size.$(OBJEXT) \
+	irkod_i_str.$(OBJEXT) irkod_i_str_owner.$(OBJEXT) \
+	irkod_i_text_canvas.$(OBJEXT) irkod_list.$(OBJEXT) \
+	irkod_mprintf.$(OBJEXT) irkod_node.$(OBJEXT) \
+	irkod_page_field_text.$(OBJEXT) irkod_page_line.$(OBJEXT) \
+	irkod_text.$(OBJEXT) irkod_text_canvas.$(OBJEXT) \
+	irkod_thing.$(OBJEXT)
 libirkod_a_OBJECTS = $(am_libirkod_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -144,6 +145,7 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_fail_failure_mb.Po ./$(DEPDIR)/irkod_grid.Po \
 	./$(DEPDIR)/irkod_grid_field_data.Po \
 	./$(DEPDIR)/irkod_grid_line_data.Po \
+	./$(DEPDIR)/irkod_i_dump.Po \
 	./$(DEPDIR)/irkod_i_fail_details.Po \
 	./$(DEPDIR)/irkod_i_grid_field.Po \
 	./$(DEPDIR)/irkod_i_grid_line.Po ./$(DEPDIR)/irkod_i_keeper.Po \
@@ -295,6 +297,7 @@ irkod_fail_failure_mb.c\
 irkod_grid.c\
 irkod_grid_field_data.c\
 irkod_grid_line_data.c\
+irkod_i_dump.c\
 irkod_i_fail_details.c\
 irkod_i_grid_field.c\
 irkod_i_grid_line.c\
@@ -371,6 +374,7 @@ include ./$(DEPDIR)/irkod_fail_failure_mb.Po # am--include-marker
 include ./$(DEPDIR)/irkod_grid.Po # am--include-marker
 include ./$(DEPDIR)/irkod_grid_field_data.Po # am--include-marker
 include ./$(DEPDIR)/irkod_grid_line_data.Po # am--include-marker
+include ./$(DEPDIR)/irkod_i_dump.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_fail_details.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_grid_field.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_grid_line.Po # am--include-marker
@@ -545,6 +549,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
+	-rm -f ./$(DEPDIR)/irkod_i_dump.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_field.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
@@ -617,6 +622,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
+	-rm -f ./$(DEPDIR)/irkod_i_dump.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_field.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
@@ -670,7 +676,6 @@ uninstall-am:
 .PRECIOUS: Makefile
 
 
-#irkod/i/dump_i.c\
 #irkod/i/id_i.c
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.

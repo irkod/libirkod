@@ -9,6 +9,7 @@ irkod_fail_failure_call.c\
 irkod_fail_failure_errno.c\
 irkod_fail_failure_malloc.c\
 irkod_fail_failure_mb.c\
+irkod_grid.c\
 irkod_grid_field_data.c\
 irkod_grid_line_data.c\
 irkod_i_fail_details.c\
