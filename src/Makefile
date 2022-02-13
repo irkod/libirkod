@@ -110,13 +110,13 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_fail_failure_errno.$(OBJEXT) \
 	irkod_fail_failure_malloc.$(OBJEXT) \
 	irkod_fail_failure_mb.$(OBJEXT) irkod_i_fail_details.$(OBJEXT) \
-	irkod_i_keeper.$(OBJEXT) irkod_i_row_cursor.$(OBJEXT) \
-	irkod_i_sequence.$(OBJEXT) irkod_i_size.$(OBJEXT) \
-	irkod_i_str.$(OBJEXT) irkod_i_str_owner.$(OBJEXT) \
-	irkod_i_text_canvas.$(OBJEXT) irkod_list.$(OBJEXT) \
-	irkod_mprintf.$(OBJEXT) irkod_node.$(OBJEXT) \
-	irkod_text.$(OBJEXT) irkod_text_canvas.$(OBJEXT) \
-	irkod_thing.$(OBJEXT)
+	irkod_i_grid_line.$(OBJEXT) irkod_i_keeper.$(OBJEXT) \
+	irkod_i_row_cursor.$(OBJEXT) irkod_i_sequence.$(OBJEXT) \
+	irkod_i_size.$(OBJEXT) irkod_i_str.$(OBJEXT) \
+	irkod_i_str_owner.$(OBJEXT) irkod_i_text_canvas.$(OBJEXT) \
+	irkod_list.$(OBJEXT) irkod_mprintf.$(OBJEXT) \
+	irkod_node.$(OBJEXT) irkod_text.$(OBJEXT) \
+	irkod_text_canvas.$(OBJEXT) irkod_thing.$(OBJEXT)
 libirkod_a_OBJECTS = $(am_libirkod_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -140,7 +140,7 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_fail_failure_malloc.Po \
 	./$(DEPDIR)/irkod_fail_failure_mb.Po \
 	./$(DEPDIR)/irkod_i_fail_details.Po \
-	./$(DEPDIR)/irkod_i_keeper.Po \
+	./$(DEPDIR)/irkod_i_grid_line.Po ./$(DEPDIR)/irkod_i_keeper.Po \
 	./$(DEPDIR)/irkod_i_row_cursor.Po \
 	./$(DEPDIR)/irkod_i_sequence.Po ./$(DEPDIR)/irkod_i_size.Po \
 	./$(DEPDIR)/irkod_i_str.Po ./$(DEPDIR)/irkod_i_str_owner.Po \
@@ -286,6 +286,7 @@ irkod_fail_failure_errno.c\
 irkod_fail_failure_malloc.c\
 irkod_fail_failure_mb.c\
 irkod_i_fail_details.c\
+irkod_i_grid_line.c\
 irkod_i_keeper.c\
 irkod_i_row_cursor.c\
 irkod_i_sequence.c\
@@ -355,6 +356,7 @@ include ./$(DEPDIR)/irkod_fail_failure_errno.Po # am--include-marker
 include ./$(DEPDIR)/irkod_fail_failure_malloc.Po # am--include-marker
 include ./$(DEPDIR)/irkod_fail_failure_mb.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_fail_details.Po # am--include-marker
+include ./$(DEPDIR)/irkod_i_grid_line.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_keeper.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_row_cursor.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_sequence.Po # am--include-marker
@@ -522,6 +524,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
+	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_keeper.Po
 	-rm -f ./$(DEPDIR)/irkod_i_row_cursor.Po
 	-rm -f ./$(DEPDIR)/irkod_i_sequence.Po
@@ -587,6 +590,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
+	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_keeper.Po
 	-rm -f ./$(DEPDIR)/irkod_i_row_cursor.Po
 	-rm -f ./$(DEPDIR)/irkod_i_sequence.Po
@@ -637,7 +641,6 @@ uninstall-am:
 
 #irkod/i/dump_i.c\
 #irkod/i/grid_field_i.c\
-#irkod/i/grid_line_i.c\
 #irkod/i/id_i.c\
 #irkod/data/grid_field_data.c\
 #irkod/data/grid_line_data.c
