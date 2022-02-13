@@ -15,6 +15,8 @@ struct irkod_page_field_text
 };
 
 void irkod_page_field_text_init(struct irkod_page_field_text *object, const char *text, IRKOD_FAIL_PARAM);
+void irkod_page_field_text_clear(struct irkod_page_field_text *object);
+
 IRKOD_THING_DECLARE(irkod_page_field_text);
 
 #endif /* !IRKOD_PAGE_FIELD_TEXT_H */

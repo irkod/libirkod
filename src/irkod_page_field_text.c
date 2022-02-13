@@ -25,7 +25,7 @@ static struct irkod_i_grid_field irkod_i_grid_field =
 
 IRKOD_THING_BEGIN
 	IRKOD_THING_I(irkod_i_grid_field)
-IRKOD_THING_END(irkod_page_field_text)
+IRKOD_THING_WITH_CLEAR_END(irkod_page_field_text)
 
 void irkod_page_field_text_init(struct irkod_page_field_text *object, const char *text, IRKOD_FAIL_PARAM)
 {
@@ -40,7 +40,14 @@ void irkod_page_field_text_init(struct irkod_page_field_text *object, const char
 	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 }
 
-void 
+void irkod_page_field_text_clear(struct irkod_page_field_text *object)
+{
+	assert(object);
+
+	irkod_text_clear(&object->text);
+}
+
+	void 
 irkod_i_grid_field__set_line(struct irkod_thing *it, struct irkod_thing *line,
 	enum irkod_orientation o, enum irkod_direction d)
 {
