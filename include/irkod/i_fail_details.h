@@ -11,4 +11,4 @@ struct irkod_i_fail_details
 	struct irkod_thing *(*dump)(struct irkod_thing *it, IRKOD_FAIL_PARAM);
 };
 
-#endif /* !IRKOD_I_FAIL_DETAILS */
+#endif /* !IRKOD_I_FAIL_DETAILS_H */
