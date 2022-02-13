@@ -1,13 +1,13 @@
-#ifndef IRKOD_GRID_FIELD_I_H
-#define IRKOD_GRID_FIELD_I_H
+#ifndef IRKOD_I_GRID_FIELD_H
+#define IRKOD_I_GRID_FIELD_H
 
-#include "irkod/common/common.h"
-#include "irkod/thing/node.h"
-#include "irkod/thing/thing.h"
+#include "irkod/common.h"
+#include "irkod/node.h"
+#include "irkod/thing.h"
 
-IRKOD_THING_DECLARE_I_ID(irkod_grid_field);
+IRKOD_THING_DECLARE_I_ID(irkod_i_grid_field);
 
-struct irkod_grid_field_i
+struct irkod_i_grid_field
 {
 	void (*set_line)(struct irkod_thing *it, struct irkod_thing *line,
 		enum irkod_orientation o, enum irkod_direction d);
@@ -17,4 +17,4 @@ struct irkod_grid_field_i
 		enum irkod_orientation o, enum irkod_direction d);
 };
 
-#endif /* !IRKOD_GRID_FIELD_I_H */
+#endif /* !IRKOD_I_GRID_FIELD_H */

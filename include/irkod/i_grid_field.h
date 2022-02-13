@@ -1,9 +1,9 @@
 #ifndef IRKOD_I_GRID_FIELD_H
 #define IRKOD_I_GRID_FIELD_H
 
-#include "irkod/common.h"
-#include "irkod/node.h"
-#include "irkod/thing.h"
+#include <irkod/common.h>
+#include <irkod/node.h>
+#include <irkod/thing.h>
 
 IRKOD_THING_DECLARE_I_ID(irkod_i_grid_field);
 
