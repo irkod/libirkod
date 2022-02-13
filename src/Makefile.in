@@ -109,7 +109,8 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_fail_failure_call.$(OBJEXT) \
 	irkod_fail_failure_errno.$(OBJEXT) \
 	irkod_fail_failure_malloc.$(OBJEXT) \
-	irkod_fail_failure_mb.$(OBJEXT) irkod_grid_line_data.$(OBJEXT) \
+	irkod_fail_failure_mb.$(OBJEXT) \
+	irkod_grid_field_data.$(OBJEXT) irkod_grid_line_data.$(OBJEXT) \
 	irkod_i_fail_details.$(OBJEXT) irkod_i_grid_field.$(OBJEXT) \
 	irkod_i_grid_line.$(OBJEXT) irkod_i_keeper.$(OBJEXT) \
 	irkod_i_row_cursor.$(OBJEXT) irkod_i_sequence.$(OBJEXT) \
@@ -140,6 +141,7 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_fail_failure_errno.Po \
 	./$(DEPDIR)/irkod_fail_failure_malloc.Po \
 	./$(DEPDIR)/irkod_fail_failure_mb.Po \
+	./$(DEPDIR)/irkod_grid_field_data.Po \
 	./$(DEPDIR)/irkod_grid_line_data.Po \
 	./$(DEPDIR)/irkod_i_fail_details.Po \
 	./$(DEPDIR)/irkod_i_grid_field.Po \
@@ -288,6 +290,7 @@ irkod_fail_failure_call.c\
 irkod_fail_failure_errno.c\
 irkod_fail_failure_malloc.c\
 irkod_fail_failure_mb.c\
+irkod_grid_field_data.c\
 irkod_grid_line_data.c\
 irkod_i_fail_details.c\
 irkod_i_grid_field.c\
@@ -360,6 +363,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_errno.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_malloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_mb.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_grid_field_data.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_grid_line_data.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_i_fail_details.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_i_grid_field.Po@am__quote@ # am--include-marker
@@ -530,6 +534,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_errno.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
+	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_field.Po
@@ -598,6 +603,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_errno.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
+	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
 	-rm -f ./$(DEPDIR)/irkod_i_grid_field.Po
@@ -651,8 +657,7 @@ uninstall-am:
 
 
 #irkod/i/dump_i.c\
-#irkod/i/id_i.c\
-#irkod/data/grid_field_data.c
+#irkod/i/id_i.c
 
 # Tell versions [3.59,3.63) of GNU make to not export all variables.
 # Otherwise a system limit (for SysV at least) may be exceeded.

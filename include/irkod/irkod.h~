@@ -9,6 +9,7 @@
 #include <irkod/fail_failure_errno.h>
 #include <irkod/fail_failure_malloc.h>
 #include <irkod/fail_failure_mb.h>
+#include <irkod/grid_line_data.h>
 #include <irkod/i_fail_details.h>
 #include <irkod/i_grid_field.h>
 #include <irkod/i_grid_line.h>
@@ -28,7 +29,6 @@
 /*
 #include <irkod/i/dump_i.h>
 #include <irkod/i/id_i.h>
-#include <irkod/data/grid_line_data.h>
 #include <irkod/data/grid_field_data.h>
 */
 
