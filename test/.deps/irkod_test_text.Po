@@ -39,13 +39,13 @@ irkod_test_text.o: irkod_test_text.c /usr/include/stdc-predef.h \
  ../include/irkod/fail_failure_errno.h ../include/irkod/thing.h \
  ../include/irkod/fail_failure_malloc.h \
  ../include/irkod/fail_failure_mb.h ../include/irkod/i_fail_details.h \
+ ../include/irkod/i_grid_field.h ../include/irkod/node.h \
  ../include/irkod/i_grid_line.h ../include/irkod/i_keeper.h \
- ../include/irkod/node.h ../include/irkod/i_row_cursor.h \
- ../include/irkod/i_sequence.h ../include/irkod/i_size.h \
- ../include/irkod/i_str.h ../include/irkod/i_str_owner.h \
- ../include/irkod/i_text_canvas.h ../include/irkod/list.h \
- ../include/irkod/mprintf.h ../include/irkod/text.h \
- ../include/irkod/text_canvas.h
+ ../include/irkod/i_row_cursor.h ../include/irkod/i_sequence.h \
+ ../include/irkod/i_size.h ../include/irkod/i_str.h \
+ ../include/irkod/i_str_owner.h ../include/irkod/i_text_canvas.h \
+ ../include/irkod/list.h ../include/irkod/mprintf.h \
+ ../include/irkod/text.h ../include/irkod/text_canvas.h
 /usr/include/stdc-predef.h:
 /usr/include/stdio.h:
 /usr/include/bits/libc-header-start.h:
@@ -122,9 +122,10 @@ irkod_test_text.o: irkod_test_text.c /usr/include/stdc-predef.h \
 ../include/irkod/fail_failure_malloc.h:
 ../include/irkod/fail_failure_mb.h:
 ../include/irkod/i_fail_details.h:
+../include/irkod/i_grid_field.h:
+../include/irkod/node.h:
 ../include/irkod/i_grid_line.h:
 ../include/irkod/i_keeper.h:
-../include/irkod/node.h:
 ../include/irkod/i_row_cursor.h:
 ../include/irkod/i_sequence.h:
 ../include/irkod/i_size.h:
