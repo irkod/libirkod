@@ -23,6 +23,7 @@
 #include <irkod/i_text_canvas.h>
 #include <irkod/list.h>
 #include <irkod/mprintf.h>
+#include <irkod/page_line.h>
 #include <irkod/text.h>
 #include <irkod/text_canvas.h>
 #include <irkod/thing.h>

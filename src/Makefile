@@ -117,8 +117,9 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_i_size.$(OBJEXT) irkod_i_str.$(OBJEXT) \
 	irkod_i_str_owner.$(OBJEXT) irkod_i_text_canvas.$(OBJEXT) \
 	irkod_list.$(OBJEXT) irkod_mprintf.$(OBJEXT) \
-	irkod_node.$(OBJEXT) irkod_text.$(OBJEXT) \
-	irkod_text_canvas.$(OBJEXT) irkod_thing.$(OBJEXT)
+	irkod_node.$(OBJEXT) irkod_page_line.$(OBJEXT) \
+	irkod_text.$(OBJEXT) irkod_text_canvas.$(OBJEXT) \
+	irkod_thing.$(OBJEXT)
 libirkod_a_OBJECTS = $(am_libirkod_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
 am__v_P_ = $(am__v_P_$(AM_DEFAULT_VERBOSITY))
@@ -151,8 +152,8 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_i_str.Po ./$(DEPDIR)/irkod_i_str_owner.Po \
 	./$(DEPDIR)/irkod_i_text_canvas.Po ./$(DEPDIR)/irkod_list.Po \
 	./$(DEPDIR)/irkod_mprintf.Po ./$(DEPDIR)/irkod_node.Po \
-	./$(DEPDIR)/irkod_text.Po ./$(DEPDIR)/irkod_text_canvas.Po \
-	./$(DEPDIR)/irkod_thing.Po
+	./$(DEPDIR)/irkod_page_line.Po ./$(DEPDIR)/irkod_text.Po \
+	./$(DEPDIR)/irkod_text_canvas.Po ./$(DEPDIR)/irkod_thing.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
 	$(CPPFLAGS) $(AM_CFLAGS) $(CFLAGS)
@@ -305,6 +306,7 @@ irkod_i_text_canvas.c\
 irkod_list.c\
 irkod_mprintf.c\
 irkod_node.c\
+irkod_page_line.c\
 irkod_text.c\
 irkod_text_canvas.c\
 irkod_thing.c
@@ -378,6 +380,7 @@ include ./$(DEPDIR)/irkod_i_text_canvas.Po # am--include-marker
 include ./$(DEPDIR)/irkod_list.Po # am--include-marker
 include ./$(DEPDIR)/irkod_mprintf.Po # am--include-marker
 include ./$(DEPDIR)/irkod_node.Po # am--include-marker
+include ./$(DEPDIR)/irkod_page_line.Po # am--include-marker
 include ./$(DEPDIR)/irkod_text.Po # am--include-marker
 include ./$(DEPDIR)/irkod_text_canvas.Po # am--include-marker
 include ./$(DEPDIR)/irkod_thing.Po # am--include-marker
@@ -549,6 +552,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_list.Po
 	-rm -f ./$(DEPDIR)/irkod_mprintf.Po
 	-rm -f ./$(DEPDIR)/irkod_node.Po
+	-rm -f ./$(DEPDIR)/irkod_page_line.Po
 	-rm -f ./$(DEPDIR)/irkod_text.Po
 	-rm -f ./$(DEPDIR)/irkod_text_canvas.Po
 	-rm -f ./$(DEPDIR)/irkod_thing.Po
@@ -618,6 +622,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_list.Po
 	-rm -f ./$(DEPDIR)/irkod_mprintf.Po
 	-rm -f ./$(DEPDIR)/irkod_node.Po
+	-rm -f ./$(DEPDIR)/irkod_page_line.Po
 	-rm -f ./$(DEPDIR)/irkod_text.Po
 	-rm -f ./$(DEPDIR)/irkod_text_canvas.Po
 	-rm -f ./$(DEPDIR)/irkod_thing.Po
