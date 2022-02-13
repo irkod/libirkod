@@ -24,6 +24,7 @@ irkod_i_text_canvas.c\
 irkod_list.c\
 irkod_mprintf.c\
 irkod_node.c\
+irkod_page_field_text.c\
 irkod_page_line.c\
 irkod_text.c\
 irkod_text_canvas.c\
