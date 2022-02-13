@@ -1,7 +1,9 @@
-irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
- /usr/include/malloc.h /usr/include/features.h /usr/include/sys/cdefs.h \
- /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
- /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+irkod_grid.o: irkod_grid.c /usr/include/stdc-predef.h \
+ ../include/irkod/grid.h ../include/irkod/common.h \
+ ../include/irkod/thing.h /usr/include/malloc.h /usr/include/features.h \
+ /usr/include/sys/cdefs.h /usr/include/bits/wordsize.h \
+ /usr/include/bits/long-double.h /usr/include/gnu/stubs.h \
+ /usr/include/gnu/stubs-64.h \
  /usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include/stddef.h \
  /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include/stdarg.h \
@@ -12,12 +14,6 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
  /usr/include/bits/types/FILE.h /usr/include/bits/types/struct_FILE.h \
  /usr/include/bits/stdio_lim.h /usr/include/bits/floatn.h \
  /usr/include/bits/floatn-common.h /usr/include/bits/stdio.h \
- ../include/irkod/irkod.h ../include/irkod/common.h \
- ../include/irkod/fail.h /usr/include/assert.h \
- ../include/irkod/fail_failure_and_details.h \
- ../include/irkod/fail_failure_attach_count.h \
- ../include/irkod/fail_failure_call.h \
- ../include/irkod/fail_failure_errno.h ../include/irkod/thing.h \
  /usr/include/stdlib.h /usr/include/bits/waitflags.h \
  /usr/include/bits/waitstatus.h /usr/include/sys/types.h \
  /usr/include/bits/types/clock_t.h /usr/include/bits/types/clockid_t.h \
@@ -33,19 +29,17 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
  /usr/include/bits/pthreadtypes-arch.h /usr/include/bits/struct_mutex.h \
  /usr/include/bits/struct_rwlock.h /usr/include/alloca.h \
  /usr/include/bits/stdlib-bsearch.h /usr/include/bits/stdlib-float.h \
+ ../include/irkod/fail.h /usr/include/assert.h \
+ ../include/irkod/fail_failure_and_details.h \
+ ../include/irkod/fail_failure_attach_count.h \
  ../include/irkod/fail_failure_malloc.h \
- ../include/irkod/fail_failure_mb.h ../include/irkod/grid.h \
- ../include/irkod/grid_field_data.h ../include/irkod/node.h \
- ../include/irkod/grid_line_data.h ../include/irkod/list.h \
- ../include/irkod/i_fail_details.h ../include/irkod/i_grid_field.h \
- ../include/irkod/i_grid_line.h ../include/irkod/i_keeper.h \
- ../include/irkod/i_row_cursor.h ../include/irkod/i_sequence.h \
- ../include/irkod/i_size.h ../include/irkod/i_str.h \
- ../include/irkod/i_str_owner.h ../include/irkod/i_text_canvas.h \
- ../include/irkod/mprintf.h ../include/irkod/page_field_text.h \
- ../include/irkod/text.h ../include/irkod/page_line.h \
- ../include/irkod/text_canvas.h
+ ../include/irkod/fail_failure_call.h ../include/irkod/i_grid_field.h \
+ ../include/irkod/node.h ../include/irkod/i_grid_line.h \
+ ../include/irkod/i_sequence.h ../include/irkod/i_size.h
 /usr/include/stdc-predef.h:
+../include/irkod/grid.h:
+../include/irkod/common.h:
+../include/irkod/thing.h:
 /usr/include/malloc.h:
 /usr/include/features.h:
 /usr/include/sys/cdefs.h:
@@ -71,15 +65,6 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
 /usr/include/bits/floatn.h:
 /usr/include/bits/floatn-common.h:
 /usr/include/bits/stdio.h:
-../include/irkod/irkod.h:
-../include/irkod/common.h:
-../include/irkod/fail.h:
-/usr/include/assert.h:
-../include/irkod/fail_failure_and_details.h:
-../include/irkod/fail_failure_attach_count.h:
-../include/irkod/fail_failure_call.h:
-../include/irkod/fail_failure_errno.h:
-../include/irkod/thing.h:
 /usr/include/stdlib.h:
 /usr/include/bits/waitflags.h:
 /usr/include/bits/waitstatus.h:
@@ -108,25 +93,14 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
 /usr/include/alloca.h:
 /usr/include/bits/stdlib-bsearch.h:
 /usr/include/bits/stdlib-float.h:
+../include/irkod/fail.h:
+/usr/include/assert.h:
+../include/irkod/fail_failure_and_details.h:
+../include/irkod/fail_failure_attach_count.h:
 ../include/irkod/fail_failure_malloc.h:
-../include/irkod/fail_failure_mb.h:
-../include/irkod/grid.h:
-../include/irkod/grid_field_data.h:
-../include/irkod/node.h:
-../include/irkod/grid_line_data.h:
-../include/irkod/list.h:
-../include/irkod/i_fail_details.h:
+../include/irkod/fail_failure_call.h:
 ../include/irkod/i_grid_field.h:
+../include/irkod/node.h:
 ../include/irkod/i_grid_line.h:
-../include/irkod/i_keeper.h:
-../include/irkod/i_row_cursor.h:
 ../include/irkod/i_sequence.h:
 ../include/irkod/i_size.h:
-../include/irkod/i_str.h:
-../include/irkod/i_str_owner.h:
-../include/irkod/i_text_canvas.h:
-../include/irkod/mprintf.h:
-../include/irkod/page_field_text.h:
-../include/irkod/text.h:
-../include/irkod/page_line.h:
-../include/irkod/text_canvas.h:

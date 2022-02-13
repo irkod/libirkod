@@ -109,7 +109,7 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_fail_failure_call.$(OBJEXT) \
 	irkod_fail_failure_errno.$(OBJEXT) \
 	irkod_fail_failure_malloc.$(OBJEXT) \
-	irkod_fail_failure_mb.$(OBJEXT) \
+	irkod_fail_failure_mb.$(OBJEXT) irkod_grid.$(OBJEXT) \
 	irkod_grid_field_data.$(OBJEXT) irkod_grid_line_data.$(OBJEXT) \
 	irkod_i_fail_details.$(OBJEXT) irkod_i_grid_field.$(OBJEXT) \
 	irkod_i_grid_line.$(OBJEXT) irkod_i_keeper.$(OBJEXT) \
@@ -141,7 +141,7 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_fail_failure_call.Po \
 	./$(DEPDIR)/irkod_fail_failure_errno.Po \
 	./$(DEPDIR)/irkod_fail_failure_malloc.Po \
-	./$(DEPDIR)/irkod_fail_failure_mb.Po \
+	./$(DEPDIR)/irkod_fail_failure_mb.Po ./$(DEPDIR)/irkod_grid.Po \
 	./$(DEPDIR)/irkod_grid_field_data.Po \
 	./$(DEPDIR)/irkod_grid_line_data.Po \
 	./$(DEPDIR)/irkod_i_fail_details.Po \
@@ -292,6 +292,7 @@ irkod_fail_failure_call.c\
 irkod_fail_failure_errno.c\
 irkod_fail_failure_malloc.c\
 irkod_fail_failure_mb.c\
+irkod_grid.c\
 irkod_grid_field_data.c\
 irkod_grid_line_data.c\
 irkod_i_fail_details.c\
@@ -367,6 +368,7 @@ distclean-compile:
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_errno.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_malloc.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_fail_failure_mb.Po@am__quote@ # am--include-marker
+@AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_grid.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_grid_field_data.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_grid_line_data.Po@am__quote@ # am--include-marker
 @AMDEP_TRUE@@am__include@ @am__quote@./$(DEPDIR)/irkod_i_fail_details.Po@am__quote@ # am--include-marker
@@ -540,6 +542,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_errno.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
+	-rm -f ./$(DEPDIR)/irkod_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
@@ -611,6 +614,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_errno.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_malloc.Po
 	-rm -f ./$(DEPDIR)/irkod_fail_failure_mb.Po
+	-rm -f ./$(DEPDIR)/irkod_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_field_data.Po
 	-rm -f ./$(DEPDIR)/irkod_grid_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_i_fail_details.Po
