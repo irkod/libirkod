@@ -34,7 +34,7 @@ void irkod_page_field_text_init(struct irkod_page_field_text *object, const char
 	assert(object);
 	
 	IRKOD_THING_INIT(object);
-	irkod_grid_field_data_init(&object->grid_field_data);
+	irkod_grid_field_data_init(&object->grid_field_data, IRKOD_THING(object));
 	
 	irkod_text_init_copy(&object->text, text, IRKOD_FAIL);
 	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;

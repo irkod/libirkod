@@ -3,7 +3,7 @@
 #include <irkod/grid_field_data.h>
 
 void 
-irkod_grid_field_data_init(struct irkod_grid_field_data *data)
+irkod_grid_field_data_init(struct irkod_grid_field_data *data, struct irkod_thing *it)
 {
 	assert(data);
 
@@ -11,7 +11,7 @@ irkod_grid_field_data_init(struct irkod_grid_field_data *data)
 		for(int d = 0; d < irkod_direction_count; d++)
 		{
 			data->line[o][d] = NULL;
-			irkod_node_init(&data->siblings_node[o][d], data);
+			irkod_node_init(&data->siblings_node[o][d], it);
 		}
 }
 

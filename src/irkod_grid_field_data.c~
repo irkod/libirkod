@@ -1,6 +1,6 @@
 #include <stddef.h>
 #include <assert.h>
-#include <irkod/data/grid_field_data.h>
+#include <irkod/grid_field_data.h>
 
 void 
 irkod_grid_field_data_init(struct irkod_grid_field_data *data)
