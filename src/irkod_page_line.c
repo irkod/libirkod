@@ -116,6 +116,7 @@ void irkod_i_id__look(struct irkod_thing *it, const char *id)
 	object->id = id;
 
 }
+
 const char *irkod_i_id__get(struct irkod_thing *it)
 {
 	assert(it);

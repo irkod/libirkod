@@ -11,6 +11,7 @@ struct irkod_page_field_text
 {
 	struct irkod_grid_field_data grid_field_data;
 	struct irkod_text text;
+	const char *id;
 	IRKOD_THING_MEMBER;
 };
 
