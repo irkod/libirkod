@@ -10,14 +10,14 @@
 
 IRKOD_FAIL_FILE(irkod_module_id);
 
-void irkod_i_grid_field__set_line(struct irkod_thing *it, struct irkod_thing *line,
+static void irkod_i_grid_field__set_line(struct irkod_thing *it, struct irkod_thing *line,
 	enum irkod_orientation o, enum irkod_direction d);
-struct irkod_thing *irkod_i_grid_field__get_line(struct irkod_thing *it,
+static struct irkod_thing *irkod_i_grid_field__get_line(struct irkod_thing *it,
 	enum irkod_orientation o, enum irkod_direction d);
-struct irkod_node *irkod_i_grid_field__get_siblings_node(struct irkod_thing *it,
+static struct irkod_node *irkod_i_grid_field__get_siblings_node(struct irkod_thing *it,
 	enum irkod_orientation o, enum irkod_direction d);
-void irkod_i_id__look(struct irkod_thing *it, const char *id);
-const char *irkod_i_id__get(struct irkod_thing *it);
+static void irkod_i_id__look(struct irkod_thing *it, const char *id);
+static const char *irkod_i_id__get(struct irkod_thing *it);
 
 static struct irkod_i_grid_field irkod_i_grid_field =
 {

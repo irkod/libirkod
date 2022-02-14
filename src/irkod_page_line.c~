@@ -54,6 +54,7 @@ static struct irkod_i_dump irkod_i_dump =
 IRKOD_THING_BEGIN
 	IRKOD_THING_I(irkod_i_grid_line)
 	IRKOD_THING_I(irkod_i_id)
+	IRKOD_THING_I(irkod_i_dump)
 IRKOD_THING_END(irkod_page_line)
 
 void irkod_page_line_init(struct irkod_page_line *object, enum irkod_orientation o)
