@@ -5,9 +5,8 @@ noinst_PROGRAMS =\
 irkod_test_mprintf\
 irkod_test_fail\
 irkod_test_text\
-irkod_test_list
-
-#test_text_canvas
+irkod_test_list\
+irkod_test_text_canvas
 
 irkod_test_mprintf_SOURCES =\
 irkod_test_mprintf.c
@@ -21,5 +20,5 @@ irkod_test_fail.c
 irkod_test_list_SOURCES =\
 irkod_test_list.c
 
-#test_text_canvas_SOURCES =\
-#test_text_canvas.c
+irkod_test_text_canvas_SOURCES =\
+irkod_test_text_canvas.c

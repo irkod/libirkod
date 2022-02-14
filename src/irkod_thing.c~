@@ -1,7 +1,7 @@
 #include <stddef.h>
 #include <irkod/thing.h>
 
-void *irkod_thing_geti(struct irkod_thing *it, irkod_thing_i_id_t *id)
+void *irkod_thing_get_i(struct irkod_thing *it, irkod_thing_i_id_t *id)
 {
 	struct irkod_thing_i_table_entry *entry = it->data->i_table;
 

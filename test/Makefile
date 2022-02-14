@@ -87,8 +87,8 @@ NORMAL_UNINSTALL = :
 PRE_UNINSTALL = :
 POST_UNINSTALL = :
 noinst_PROGRAMS = irkod_test_mprintf$(EXEEXT) irkod_test_fail$(EXEEXT) \
-	irkod_test_text$(EXEEXT) irkod_test_list$(EXEEXT) \
-	irkod_test_text_canvas$(EXEEXT)
+	irkod_test_grid$(EXEEXT) irkod_test_text$(EXEEXT) \
+	irkod_test_list$(EXEEXT) irkod_test_text_canvas$(EXEEXT)
 subdir = test
 ACLOCAL_M4 = $(top_srcdir)/aclocal.m4
 am__aclocal_m4_deps = $(top_srcdir)/configure.ac
@@ -104,6 +104,10 @@ am_irkod_test_fail_OBJECTS = irkod_test_fail.$(OBJEXT)
 irkod_test_fail_OBJECTS = $(am_irkod_test_fail_OBJECTS)
 irkod_test_fail_LDADD = $(LDADD)
 irkod_test_fail_DEPENDENCIES = $(top_builddir)/src/libirkod.a
+am_irkod_test_grid_OBJECTS = irkod_test_grid.$(OBJEXT)
+irkod_test_grid_OBJECTS = $(am_irkod_test_grid_OBJECTS)
+irkod_test_grid_LDADD = $(LDADD)
+irkod_test_grid_DEPENDENCIES = $(top_builddir)/src/libirkod.a
 am_irkod_test_list_OBJECTS = irkod_test_list.$(OBJEXT)
 irkod_test_list_OBJECTS = $(am_irkod_test_list_OBJECTS)
 irkod_test_list_LDADD = $(LDADD)
@@ -136,7 +140,7 @@ DEFAULT_INCLUDES = -I. -I$(top_builddir)
 depcomp = $(SHELL) $(top_srcdir)/depcomp
 am__maybe_remake_depfiles = depfiles
 am__depfiles_remade = ./$(DEPDIR)/irkod_test_fail.Po \
-	./$(DEPDIR)/irkod_test_list.Po \
+	./$(DEPDIR)/irkod_test_grid.Po ./$(DEPDIR)/irkod_test_list.Po \
 	./$(DEPDIR)/irkod_test_mprintf.Po \
 	./$(DEPDIR)/irkod_test_text.Po \
 	./$(DEPDIR)/irkod_test_text_canvas.Po
@@ -153,12 +157,12 @@ AM_V_CCLD = $(am__v_CCLD_$(V))
 am__v_CCLD_ = $(am__v_CCLD_$(AM_DEFAULT_VERBOSITY))
 am__v_CCLD_0 = @echo "  CCLD    " $@;
 am__v_CCLD_1 = 
-SOURCES = $(irkod_test_fail_SOURCES) $(irkod_test_list_SOURCES) \
-	$(irkod_test_mprintf_SOURCES) $(irkod_test_text_SOURCES) \
-	$(irkod_test_text_canvas_SOURCES)
-DIST_SOURCES = $(irkod_test_fail_SOURCES) $(irkod_test_list_SOURCES) \
-	$(irkod_test_mprintf_SOURCES) $(irkod_test_text_SOURCES) \
-	$(irkod_test_text_canvas_SOURCES)
+SOURCES = $(irkod_test_fail_SOURCES) $(irkod_test_grid_SOURCES) \
+	$(irkod_test_list_SOURCES) $(irkod_test_mprintf_SOURCES) \
+	$(irkod_test_text_SOURCES) $(irkod_test_text_canvas_SOURCES)
+DIST_SOURCES = $(irkod_test_fail_SOURCES) $(irkod_test_grid_SOURCES) \
+	$(irkod_test_list_SOURCES) $(irkod_test_mprintf_SOURCES) \
+	$(irkod_test_text_SOURCES) $(irkod_test_text_canvas_SOURCES)
 am__can_run_installinfo = \
   case $$AM_UPDATE_INFO_DIR in \
     n|no|NO) false;; \
@@ -283,6 +287,9 @@ irkod_test_text.c
 irkod_test_fail_SOURCES = \
 irkod_test_fail.c
 
+irkod_test_grid_SOURCES = \
+irkod_test_grid.c
+
 irkod_test_list_SOURCES = \
 irkod_test_list.c
 
@@ -330,6 +337,10 @@ irkod_test_fail$(EXEEXT): $(irkod_test_fail_OBJECTS) $(irkod_test_fail_DEPENDENC
 	@rm -f irkod_test_fail$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(irkod_test_fail_OBJECTS) $(irkod_test_fail_LDADD) $(LIBS)
 
+irkod_test_grid$(EXEEXT): $(irkod_test_grid_OBJECTS) $(irkod_test_grid_DEPENDENCIES) $(EXTRA_irkod_test_grid_DEPENDENCIES) 
+	@rm -f irkod_test_grid$(EXEEXT)
+	$(AM_V_CCLD)$(LINK) $(irkod_test_grid_OBJECTS) $(irkod_test_grid_LDADD) $(LIBS)
+
 irkod_test_list$(EXEEXT): $(irkod_test_list_OBJECTS) $(irkod_test_list_DEPENDENCIES) $(EXTRA_irkod_test_list_DEPENDENCIES) 
 	@rm -f irkod_test_list$(EXEEXT)
 	$(AM_V_CCLD)$(LINK) $(irkod_test_list_OBJECTS) $(irkod_test_list_LDADD) $(LIBS)
@@ -353,6 +364,7 @@ distclean-compile:
 	-rm -f *.tab.c
 
 include ./$(DEPDIR)/irkod_test_fail.Po # am--include-marker
+include ./$(DEPDIR)/irkod_test_grid.Po # am--include-marker
 include ./$(DEPDIR)/irkod_test_list.Po # am--include-marker
 include ./$(DEPDIR)/irkod_test_mprintf.Po # am--include-marker
 include ./$(DEPDIR)/irkod_test_text.Po # am--include-marker
@@ -505,6 +517,7 @@ clean-am: clean-generic clean-noinstPROGRAMS mostlyclean-am
 
 distclean: distclean-am
 		-rm -f ./$(DEPDIR)/irkod_test_fail.Po
+	-rm -f ./$(DEPDIR)/irkod_test_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_test_list.Po
 	-rm -f ./$(DEPDIR)/irkod_test_mprintf.Po
 	-rm -f ./$(DEPDIR)/irkod_test_text.Po
@@ -555,6 +568,7 @@ installcheck-am:
 
 maintainer-clean: maintainer-clean-am
 		-rm -f ./$(DEPDIR)/irkod_test_fail.Po
+	-rm -f ./$(DEPDIR)/irkod_test_grid.Po
 	-rm -f ./$(DEPDIR)/irkod_test_list.Po
 	-rm -f ./$(DEPDIR)/irkod_test_mprintf.Po
 	-rm -f ./$(DEPDIR)/irkod_test_text.Po

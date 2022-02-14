@@ -1,4 +1,4 @@
-#include "isz/it/it.h"
+#include <irkod/thing.h>
 
-ISZ_IT_INTERFACE_ID_DEFINE(isz_dump);
+IRKOD_THING_I_ID_DEFINE(irkod_i_dump);
 

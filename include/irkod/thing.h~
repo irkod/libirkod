@@ -12,7 +12,7 @@
 
 struct irkod_thing;
 typedef const char *irkod_thing_i_id_t;
-typedef void (*irkod_functor_t)(struct irkod_thing *it, void *data, IRKOD_FAIL_PARAM);
+typedef void (*irkod_thing_functor_t)(struct irkod_thing *it, void *data, IRKOD_FAIL_PARAM);
 void *irkod_thing_get_i(struct irkod_thing *it, irkod_thing_i_id_t *id);
 
 struct irkod_thing_i_table_entry
@@ -55,11 +55,6 @@ struct interface *interface ## _geti(struct irkod_thing *it) \
 { \
 	struct interface *i = irkod_thing_get_i((it), &interface ## _i_id); \
 \
-	if(!i) \
-	{ \
-		fprintf(stderr, "%s does not implement %s interface\n", it->data->type_name, interface ## _i_id); \
-		abort(); \
-	} \
 \
 	return i; \
 }

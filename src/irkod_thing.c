@@ -13,6 +13,7 @@ void *irkod_thing_get_i(struct irkod_thing *it, irkod_thing_i_id_t *id)
 		++entry;
 	}
 
-	return NULL;
+	fprintf(stderr, "%s does not implement %s interface\n", it->data->type_name, *id); 
+	abort(); 
 }
 

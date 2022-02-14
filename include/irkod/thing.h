@@ -53,15 +53,7 @@ struct interface *interface ## _geti(struct irkod_thing *it)
 irkod_thing_i_id_t interface ## _i_id = #interface; \
 struct interface *interface ## _geti(struct irkod_thing *it) \
 { \
-	struct interface *i = irkod_thing_get_i((it), &interface ## _i_id); \
-\
-	if(!i) \
-	{ \
-		fprintf(stderr, "%s does not implement %s interface\n", it->data->type_name, interface ## _i_id); \
-		abort(); \
-	} \
-\
-	return i; \
+	return (struct interface *) irkod_thing_get_i((it), &interface ## _i_id); \
 }
 
 #define IRKOD_THING_ATTACH(it, fail_node) \
