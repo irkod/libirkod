@@ -1,0 +1,3 @@
+#include <irkod/thing/thing.h>
+
+IRKOD_THING_DEFINE_I_ID(irkod_id);

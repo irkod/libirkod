@@ -40,12 +40,13 @@ irkod_test_mprintf.o: irkod_test_mprintf.c /usr/include/stdc-predef.h \
  ../include/irkod/grid_line_data.h ../include/irkod/list.h \
  ../include/irkod/i_dump.h ../include/irkod/i_fail_details.h \
  ../include/irkod/i_grid_field.h ../include/irkod/i_grid_line.h \
- ../include/irkod/i_keeper.h ../include/irkod/i_row_cursor.h \
- ../include/irkod/i_sequence.h ../include/irkod/i_size.h \
- ../include/irkod/i_str.h ../include/irkod/i_str_owner.h \
- ../include/irkod/i_text_canvas.h ../include/irkod/mprintf.h \
- ../include/irkod/page_field_text.h ../include/irkod/text.h \
- ../include/irkod/page_line.h ../include/irkod/text_canvas.h
+ ../include/irkod/i_id.h ../include/irkod/i_keeper.h \
+ ../include/irkod/i_row_cursor.h ../include/irkod/i_sequence.h \
+ ../include/irkod/i_size.h ../include/irkod/i_str.h \
+ ../include/irkod/i_str_owner.h ../include/irkod/i_text_canvas.h \
+ ../include/irkod/mprintf.h ../include/irkod/page_field_text.h \
+ ../include/irkod/text.h ../include/irkod/page_line.h \
+ ../include/irkod/text_canvas.h
 /usr/include/stdc-predef.h:
 ../include/irkod/irkod.h:
 ../include/irkod/common.h:
@@ -120,6 +121,7 @@ irkod_test_mprintf.o: irkod_test_mprintf.c /usr/include/stdc-predef.h \
 ../include/irkod/i_fail_details.h:
 ../include/irkod/i_grid_field.h:
 ../include/irkod/i_grid_line.h:
+../include/irkod/i_id.h:
 ../include/irkod/i_keeper.h:
 ../include/irkod/i_row_cursor.h:
 ../include/irkod/i_sequence.h:

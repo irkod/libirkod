@@ -12,6 +12,7 @@ irkod_fail_failure_mb.c\
 irkod_grid.c\
 irkod_grid_field_data.c\
 irkod_grid_line_data.c\
+irkod_i_dump.c\
 irkod_i_fail_details.c\
 irkod_i_grid_field.c\
 irkod_i_grid_line.c\
@@ -31,6 +32,5 @@ irkod_text.c\
 irkod_text_canvas.c\
 irkod_thing.c
 
-#irkod/i/dump_i.c\
 #irkod/i/id_i.c
 
