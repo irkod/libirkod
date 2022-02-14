@@ -1,14 +1,14 @@
-#ifndef IRKOD_ID_I_H
-#define IRKOD_ID_I_H
+#ifndef IRKOD_I_ID_H
+#define IRKOD_I_ID_H
 
-#include <irkod/thing/thing.h>
+#include <irkod/thing.h>
 
-IRKOD_THING_DECLARE_I_ID(irkod_id);
+IRKOD_THING_DECLARE_I_ID(irkod_i_id);
 
-struct irkod_id_i
+struct irkod_id
 {
-	void (*set)(struct irkod_thing *it, const char *id);
+	void (*look)(struct irkod_thing *it, const char *id);
 	const char *(*get)(struct irkod_thing *it);
 };
 
-#endif /* !IRKOD_ID_I_H */
+#endif /* !IRKOD_I_ID_H */

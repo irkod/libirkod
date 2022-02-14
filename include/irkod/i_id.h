@@ -5,7 +5,7 @@
 
 IRKOD_THING_DECLARE_I_ID(irkod_i_id);
 
-struct irkod_id
+struct irkod_i_id
 {
 	void (*look)(struct irkod_thing *it, const char *id);
 	const char *(*get)(struct irkod_thing *it);

@@ -33,7 +33,8 @@ irkod_page_line.o: irkod_page_line.c /usr/include/stdc-predef.h \
  ../include/irkod/fail_failure_attach_count.h \
  ../include/irkod/fail_failure_malloc.h ../include/irkod/grid_line_data.h \
  ../include/irkod/list.h ../include/irkod/node.h \
- ../include/irkod/i_grid_line.h ../include/irkod/page_line.h
+ ../include/irkod/i_grid_line.h ../include/irkod/i_id.h \
+ ../include/irkod/page_line.h
 /usr/include/stdc-predef.h:
 /usr/include/assert.h:
 /usr/include/features.h:
@@ -99,4 +100,5 @@ irkod_page_line.o: irkod_page_line.c /usr/include/stdc-predef.h \
 ../include/irkod/list.h:
 ../include/irkod/node.h:
 ../include/irkod/i_grid_line.h:
+../include/irkod/i_id.h:
 ../include/irkod/page_line.h:
