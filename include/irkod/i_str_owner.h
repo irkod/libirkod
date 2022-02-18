@@ -12,6 +12,7 @@ struct irkod_i_str_owner
 	void (*take)(struct irkod_thing *it, char *str);
 	void (*copy)(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM);
 	void (*append)(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM);
+	void (*append_mprintf)(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...);
 	int (*owns)(struct irkod_thing *it);
 	const char *(*get)(struct irkod_thing *it);
 };

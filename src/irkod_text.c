@@ -19,6 +19,7 @@ static void irkod_i_str_owner__look(struct irkod_thing *it, char *str);
 static void irkod_i_str_owner__take(struct irkod_thing *it, char *str);
 static void irkod_i_str_owner__copy(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM);
 static void irkod_i_str_owner__append(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM);
+static void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...);
 static int irkod_i_str_owner__owns(struct irkod_thing *it);
 
 static struct irkod_i_str irkod_i_str =
@@ -32,6 +33,7 @@ static struct irkod_i_str_owner irkod_i_str_owner =
 	irkod_i_str_owner__take,
 	irkod_i_str_owner__copy,
 	irkod_i_str_owner__append,
+	irkod_i_str_owner__append_mprintf,
 	irkod_i_str_owner__owns,
 	irkod_i_str__get
 };
@@ -208,3 +210,34 @@ void irkod_i_str_owner__append(struct irkod_thing *it, const char *str, IRKOD_FA
 	object->str = new_str;
 	object->owns = 1;
 }
+
+void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...)
+{
+	IRKOD_FAIL_NEXT;
+	
+	assert(it);
+	assert(format);
+
+	va_list ap;
+	char *str;
+	size_t size;
+	
+	va_start(ap, format);
+	size = irkod_vmprintf_size(format, ap);
+	va_end(ap);		
+
+	va_start(ap, format);
+	str = irkod_vmprintf_str(format, size, ap);
+	va_end(ap);		
+
+	IRKOD_FAIL_RETURN_ON_MALLOC_FAILURE(str);
+
+	irkod_i_str_owner__append(it, str, IRKOD_FAIL);
+
+	IRKOD_FAIL_ON_FAILURE
+	{
+		free(str);
+		IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
+	}
+}
+

@@ -161,12 +161,8 @@ struct irkod_thing *irkod_i_dump__get(void *it, void *data, IRKOD_FAIL_PARAM)
 
 	for(enum irkod_direction d = 0; d < irkod_direction_count; ++d)
 	{
-		char *s = irkod_mprintf(" fields[%d]={", d);
-		IRKOD_FAIL_RETURN_RESULT_ON_MALLOC_FAILURE(s, NULL);
-
-		i_str_owner->append(IRKOD_THING(text), s, IRKOD_FAIL);
+		i_str_owner->append_mprintf(IRKOD_THING(text), IRKOD_FAIL, " fields[%d]={", d);
 		IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
-		free(s);
 
 		struct irkod_thing *fields = irkod_i_grid_line__get_fields(it, d);
 		struct irkod_i_sequence *i_sequence = irkod_i_sequence_geti(fields);
@@ -179,12 +175,8 @@ struct irkod_thing *irkod_i_dump__get(void *it, void *data, IRKOD_FAIL_PARAM)
 			struct irkod_thing *field = peeked;
 			struct irkod_i_id *i_id = irkod_i_id_geti(field);
 			
-			s = irkod_mprintf("%s%s", separator, i_id->get(field));
-			IRKOD_FAIL_RETURN_RESULT_ON_MALLOC_FAILURE(s, NULL);
-			
-			i_str_owner->append(IRKOD_THING(text), s, IRKOD_FAIL);
+			i_str_owner->append_mprintf(IRKOD_THING(text), IRKOD_FAIL, "%s%s", separator, i_id->get(field));
 			IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
-			free(s);
 			
 			separator = ",";
 		}
