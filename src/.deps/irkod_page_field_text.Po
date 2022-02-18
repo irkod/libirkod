@@ -34,8 +34,9 @@ irkod_page_field_text.o: irkod_page_field_text.c \
  ../include/irkod/common.h ../include/irkod/fail_failure_attach_count.h \
  ../include/irkod/fail_failure_malloc.h \
  ../include/irkod/grid_field_data.h ../include/irkod/node.h \
- ../include/irkod/text.h ../include/irkod/i_grid_field.h \
- ../include/irkod/i_id.h ../include/irkod/page_field_text.h
+ ../include/irkod/text.h ../include/irkod/i_dump.h \
+ ../include/irkod/i_grid_field.h ../include/irkod/i_id.h \
+ ../include/irkod/i_str_owner.h ../include/irkod/page_field_text.h
 /usr/include/stdc-predef.h:
 /usr/include/assert.h:
 /usr/include/features.h:
@@ -101,6 +102,8 @@ irkod_page_field_text.o: irkod_page_field_text.c \
 ../include/irkod/grid_field_data.h:
 ../include/irkod/node.h:
 ../include/irkod/text.h:
+../include/irkod/i_dump.h:
 ../include/irkod/i_grid_field.h:
 ../include/irkod/i_id.h:
+../include/irkod/i_str_owner.h:
 ../include/irkod/page_field_text.h:

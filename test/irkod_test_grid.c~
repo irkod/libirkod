@@ -50,8 +50,16 @@ int main()
 	dump = irkod_i_dump_geti(IRKOD_THING(line_d))->get(IRKOD_THING(line_d), NULL, IRKOD_FAIL);
 	printf("%s\n", irkod_i_str_geti(dump)->get(dump));
 	IRKOD_THING_DETACH(dump);
+	
+	dump = irkod_i_dump_geti(IRKOD_THING(text_A))->get(IRKOD_THING(text_A), NULL, IRKOD_FAIL);
+	printf("%s\n", irkod_i_str_geti(dump)->get(dump));
+	IRKOD_THING_DETACH(dump);
 
 	IRKOD_THING_DETACH(IRKOD_THING(line_a));
+	IRKOD_THING_DETACH(IRKOD_THING(line_b));
+	IRKOD_THING_DETACH(IRKOD_THING(line_c));
+	IRKOD_THING_DETACH(IRKOD_THING(line_d));
+	IRKOD_THING_DETACH(IRKOD_THING(field_A));
 
 	IRKOD_FAIL_PRINT(stdout);
 	

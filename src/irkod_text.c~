@@ -236,7 +236,7 @@ void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM,
 
 	IRKOD_FAIL_ON_FAILURE
 	{
-		free(str);_
+		free(str);
 		IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 	}
 }
