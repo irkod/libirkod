@@ -16,15 +16,15 @@ int main()
 	IRKOD_FAIL_NEXT_WITH_RESULT(0);
 
 	struct irkod_list l;
-	irkod_list_init(&l);
+	irkod_list_init(IRKOD_THING(&l));
 
-	struct irkod_text *t1 = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *t1 = irkod_text_new(IRKOD_FAIL);
 	irkod_text_init_copy(t1, "ala1", IRKOD_FAIL);
 
-	struct irkod_text *t2 = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *t2 = irkod_text_new(IRKOD_FAIL);
 	irkod_text_init_copy(t2, "ala2", IRKOD_FAIL);
 	
-	struct irkod_text *t3 = irkod_text_new(IRKOD_FAIL);;
+	struct irkod_thing *t3 = irkod_text_new(IRKOD_FAIL);;
 	irkod_text_init_copy(t3, "ala3", IRKOD_FAIL);
 
 	struct irkod_node n1;
@@ -46,7 +46,7 @@ int main()
 	irkod_list_append(&l, &n3);
 	dump3(&l, IRKOD_FAIL);
 
-	irkod_keeper_geti(IRKOD_THING(&l))->clear(IRKOD_THING(&l));
+	irkod_i_keeper_geti(IRKOD_THING(&l))->clear(IRKOD_THING(&l));
 
 /*
 	irkod_node_remove(&n2);
@@ -86,20 +86,20 @@ void dump3(struct irkod_list *l, IRKOD_FAIL_PARAM)
 
 	struct irkod_thing *t = IRKOD_THING(l);
 
-	struct irkod_sequence_i *sequence_i = irkod_sequence_geti(t);
-	sequence_i->reset(t);
+	struct irkod_i_sequence *i_sequence = irkod_i_sequence_geti(t);
+	i_sequence->reset(t);
 
 	
-	printf("%d {\n", irkod_size_geti(t)->get(t));
+	printf("%d {\n", irkod_i_size_geti(t)->get(t));
 
 	void *peeked;
 	struct irkod_thing *it;
 
-	while(sequence_i->peek(t, &peeked))
+	while(i_sequence->peek(t, &peeked))
 	{
 		it = peeked;
-		printf("%s\n", irkod_str_geti(it)->get(it));
-		sequence_i->next(t);
+		printf("%s\n", irkod_i_str_geti(it)->get(it));
+		i_sequence->next(t);
 	}
 
 	printf ("}\n");

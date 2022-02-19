@@ -12,11 +12,11 @@ struct irkod_text
 	IRKOD_THING_MEMBER;
 };
 
-void irkod_text_init_look(struct irkod_text *object, char *str);
-void irkod_text_init_take(struct irkod_text *object, char *str);
-void irkod_text_init_copy(struct irkod_text *object, const char *str, IRKOD_FAIL_PARAM);
-void irkod_text_init_mprintf(struct irkod_text *object, IRKOD_FAIL_PARAM, const char *format, ...);
-void irkod_text_clear(struct irkod_text *object);
+void irkod_text_init_look(struct irkod_thing *it, char *str);
+void irkod_text_init_take(struct irkod_thing *it, char *str);
+void irkod_text_init_copy(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM);
+void irkod_text_init_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...);
+void irkod_text_clear(struct irkod_thing *it);
 IRKOD_THING_DECLARE(irkod_text);
 
 #endif /* !IRKOD_TEXT_H */

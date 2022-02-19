@@ -12,7 +12,7 @@ struct irkod_page_line
 	IRKOD_THING_MEMBER;
 };
 
-void irkod_page_line_init(struct irkod_page_line *object, enum irkod_orientation o);
+void irkod_page_line_init(struct irkod_thing *it, enum irkod_orientation o);
 IRKOD_THING_DECLARE(irkod_page_line);
 
 #endif /* !IRKOD_PAGE_LINE_H */

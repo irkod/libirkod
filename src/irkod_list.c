@@ -42,23 +42,26 @@ IRKOD_THING_BEGIN
 	IRKOD_THING_I(irkod_i_keeper)
 IRKOD_THING_WITH_CLEAR_END(irkod_list)
 
-void irkod_list_init(struct irkod_list *obj)
+void irkod_list_init(struct irkod_thing *it)
 {
-	assert(obj);
+	assert(it);
+	struct irkod_list *object = IRKOD_THING_GET_OBJECT(irkod_list, it);
 
-	IRKOD_THING_INIT(obj);
-	obj->first = NULL;	
-	obj->last = NULL;
-	obj->sequence = NULL;
-	obj->size = 0;	
+	IRKOD_THING_INIT(object);
+	object->first = NULL;	
+	object->last = NULL;
+	object->sequence = NULL;
+	object->size = 0;	
 }
 
-void irkod_list_clear(struct irkod_list *list)
+void irkod_list_clear(struct irkod_thing *it)
 {
-	assert(list);
+	assert(it);
 
-	while(list->first)
-		irkod_node_remove(list->first);
+	struct irkod_list *object = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	while(object->first)
+		irkod_node_remove(object->first);
 }
 
 void irkod_list_append(struct irkod_list *list, struct irkod_node *node)

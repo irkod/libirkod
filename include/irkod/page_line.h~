@@ -8,6 +8,7 @@
 struct irkod_page_line
 {
 	struct irkod_grid_line_data grid_line_data;
+	const char *id;
 	IRKOD_THING_MEMBER;
 };
 

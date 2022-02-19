@@ -15,16 +15,16 @@ int main()
 	IRKOD_FAIL_ROOT;
 	IRKOD_FAIL_NEXT_WITH_RESULT(0);
 
-	struct irkod_text *t = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *t = irkod_text_new(IRKOD_FAIL);
 	irkod_text_init_mprintf(t, IRKOD_FAIL, "Ala ma %d koty %s.\nI %d ma %s też.\n", 3, "syjamskie", 5, "koni");
-	struct irkod_i_str *i_str = irkod_i_str_geti(IRKOD_THING(t));
+	struct irkod_i_str *i_str = irkod_i_str_geti(t);
 
-	printf(i_str->get(IRKOD_THING(t)));
+	printf(i_str->get(t));
 
-	irkod_i_str_owner_geti(IRKOD_THING(t))->append(IRKOD_THING(t), "To tyle.", IRKOD_FAIL);
-	printf(i_str->get(IRKOD_THING(t)));
+	irkod_i_str_owner_geti(t)->append(t, "To tyle.", IRKOD_FAIL);
+	printf(i_str->get(t));
 	
-	IRKOD_THING_DETACH(IRKOD_THING(t));
+	IRKOD_THING_DETACH(t);
 
 	IRKOD_FAIL_PRINT(stdout);
 	

@@ -1,4 +1,4 @@
-AM_CPPFLAGS = -I $(top_srcdir)/include/
+AM_CPPFLAGS = -Wall -I $(top_srcdir)/include/
 
 noinst_LIBRARIES = libirkod.a
 

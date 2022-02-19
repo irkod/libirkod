@@ -12,7 +12,7 @@ irkod_grid_line_data_init(struct irkod_grid_line_data *data, enum irkod_orientat
 	data->orientation = o;
 
 	for(int d = 0; d < irkod_direction_count; d++)
-		irkod_list_init(&data->fields[d]);
+		irkod_list_init(IRKOD_THING(&data->fields[d]));
 
 	data->traverse_in_fields_count = 0;
 	data->traverse_in_line = NULL;
@@ -31,8 +31,6 @@ irkod_grid_line_data_add_field(struct irkod_grid_line_data *data, struct irkod_t
 {
 	assert(data);
 	assert(field);
-
-	struct irkod_i_grid_field *field_i = irkod_i_grid_field_geti(field);
 
 	irkod_list_append(&data->fields[d],
 		irkod_i_grid_field_geti(field)

@@ -286,7 +286,7 @@ target_alias =
 top_build_prefix = ../
 top_builddir = ..
 top_srcdir = ..
-AM_CPPFLAGS = -I $(top_srcdir)/include/
+AM_CPPFLAGS = -Wall -I $(top_srcdir)/include/
 noinst_LIBRARIES = libirkod.a
 libirkod_a_SOURCES = \
 irkod_fail.c\

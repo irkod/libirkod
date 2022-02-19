@@ -44,10 +44,12 @@ IRKOD_THING_BEGIN
 IRKOD_THING_WITH_CLEAR_END(irkod_text)
 
 void 
-irkod_text_init_look(struct irkod_text *object, char *str)
+irkod_text_init_look(struct irkod_thing *it, char *str)
 {
-	assert(object);
+	assert(it);
 	assert(str);
+	
+	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
 
 	IRKOD_THING_INIT(object);
 	object->str = str;
@@ -55,10 +57,12 @@ irkod_text_init_look(struct irkod_text *object, char *str)
 }
 
 void 
-irkod_text_init_take(struct irkod_text *object, char *str)
+irkod_text_init_take(struct irkod_thing *it, char *str)
 {
-	assert(object);
+	assert(it);
 	assert(str);
+	
+	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
 
 	IRKOD_THING_INIT(object);
 	object->str = str;
@@ -66,11 +70,13 @@ irkod_text_init_take(struct irkod_text *object, char *str)
 }
 
 void 
-irkod_text_init_copy(struct irkod_text *object, const char *str, IRKOD_FAIL_PARAM)
+irkod_text_init_copy(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM)
 {
-	char *new_str;
-	assert(object);
+	assert(it);
 	assert(str);
+	
+	char *new_str;
+	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
 
 	IRKOD_THING_INIT(object);
 
@@ -87,9 +93,9 @@ irkod_text_init_copy(struct irkod_text *object, const char *str, IRKOD_FAIL_PARA
 }
 
 void 
-irkod_text_init_mprintf(struct irkod_text *object, IRKOD_FAIL_PARAM, const char *format, ...)
+irkod_text_init_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...)
 {
-	assert(object);
+	assert(it);
 	assert(format);
 
 	va_list ap;
@@ -106,12 +112,14 @@ irkod_text_init_mprintf(struct irkod_text *object, IRKOD_FAIL_PARAM, const char 
 
 	IRKOD_FAIL_RETURN_ON_MALLOC_FAILURE(str);
 
-	irkod_text_init_take(object, str);
+	irkod_text_init_take(it, str);
 }
 
-void irkod_text_clear(struct irkod_text *object)
+void irkod_text_clear(struct irkod_thing *it)
 {
-	assert(object);
+	assert(it);
+
+	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
 
 	if(object->owns)
 	{
@@ -149,7 +157,7 @@ void irkod_i_str_owner__look(struct irkod_thing *it, char *str)
 	if(object->owns)
 		free(object->str);
 
-	irkod_text_init_look(object, str);
+	irkod_text_init_look(it, str);
 }
 void irkod_i_str_owner__take(struct irkod_thing *it, char *str)
 {
@@ -161,7 +169,7 @@ void irkod_i_str_owner__take(struct irkod_thing *it, char *str)
 	if(object->owns)
 		free(object->str);
 
-	irkod_text_init_take(object, str);
+	irkod_text_init_take(it, str);
 }
 
 void irkod_i_str_owner__copy(struct irkod_thing *it, const char *str, IRKOD_FAIL_PARAM)
@@ -176,7 +184,7 @@ void irkod_i_str_owner__copy(struct irkod_thing *it, const char *str, IRKOD_FAIL
 	if(object->owns)
 		free(object->str);
 
-	irkod_text_init_copy(object, str, IRKOD_FAIL);
+	irkod_text_init_copy(it, str, IRKOD_FAIL);
 	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 }
 

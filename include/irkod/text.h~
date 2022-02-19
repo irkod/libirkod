@@ -19,4 +19,4 @@ void irkod_text_init_mprintf(struct irkod_text *object, IRKOD_FAIL_PARAM, const 
 void irkod_text_clear(struct irkod_text *object);
 IRKOD_THING_DECLARE(irkod_text);
 
-#endif /* !IRKOD_THING_TEXT_H */
+#endif /* !IRKOD_TEXT_H */

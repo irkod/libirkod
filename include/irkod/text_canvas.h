@@ -14,7 +14,7 @@ struct irkod_text_canvas
 	IRKOD_THING_MEMBER;
 };
 
-void irkod_text_canvas_init(struct irkod_text_canvas *object);
-void irkod_text_canvas_clear(struct irkod_text_canvas *object);
+void irkod_text_canvas_init(struct irkod_thing *object);
+void irkod_text_canvas_clear(struct irkod_thing *object);
 IRKOD_THING_DECLARE(irkod_text_canvas);
 #endif /* !IRKOD_TEXT_CANVAS_H */

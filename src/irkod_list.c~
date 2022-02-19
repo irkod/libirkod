@@ -1,76 +1,66 @@
 #include <assert.h>
 #include <stddef.h>
-#include <irkod/thing/list.h>
-#include <irkod/thing/node.h>
-#include <irkod/i/sequence_i.h>
-#include <irkod/i/size_i.h>
-#include <irkod/i/keeper_i.h>
-#include <irkod/fail/failure/attach_count.h>
-#include <irkod/fail/failure/call.h>
-#include <irkod/fail/failure/malloc.h>
+#include <irkod/list.h>
+#include <irkod/node.h>
+#include <irkod/i_sequence.h>
+#include <irkod/i_size.h>
+#include <irkod/i_keeper.h>
+#include <irkod/fail_failure_attach_count.h>
+#include <irkod/fail_failure_call.h>
+#include <irkod/fail_failure_malloc.h>
 
 IRKOD_FAIL_FILE(irkod_module_id);
-IRKOD_THING_DECLARE;
 
-static void irkod_sequence_i_reset(struct irkod_thing *it);
-static int irkod_sequence_i_peek(struct irkod_thing *it, void **object);
-static void irkod_sequence_i_next(struct irkod_thing *it);
-static size_t irkod_size_i_get(const struct irkod_thing *it);
-static void irkod_keeper_i_add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM);
-static void irkod_keeper_i_clear(struct irkod_thing *it);
+static void irkod_i_sequence__reset(struct irkod_thing *it);
+static int irkod_i_sequence__peek(struct irkod_thing *it, void **object);
+static void irkod_i_sequence__next(struct irkod_thing *it);
+static size_t irkod_i_size__get(const struct irkod_thing *it);
+static void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM);
+static void irkod_i_keeper__clear(struct irkod_thing *it);
 
-IRKOD_THING_WITH_CLEAR_DEFINE(irkod_list);
-IRKOD_THING_DEFINE_FUNCTION_NEW(irkod_list);
-
-static struct irkod_sequence_i irkod_sequence_i =
+static struct irkod_i_sequence irkod_i_sequence =
 {
-	irkod_sequence_i_reset,
-	irkod_sequence_i_peek,
-	irkod_sequence_i_next
+	irkod_i_sequence__reset,
+	irkod_i_sequence__peek,
+	irkod_i_sequence__next
 };
 
-static struct irkod_size_i irkod_size_i =
+static struct irkod_i_size irkod_i_size =
 {
-	irkod_size_i_get
+	irkod_i_size__get
 };
 
-static struct irkod_keeper_i irkod_keeper_i =
+static struct irkod_i_keeper irkod_i_keeper =
 {
-	irkod_keeper_i_add,
-	irkod_keeper_i_clear
+	irkod_i_keeper__add,
+	irkod_i_keeper__clear
 };
 
-static void* 
-irkod_thing_i_get_i(struct irkod_thing *it, irkod_thing_i_id_t *id)
-{
-	if (id == &irkod_sequence_i_id)
-		return &irkod_sequence_i;
-	else if(id == &irkod_size_i_id)
-		return &irkod_size_i;
-	else if(id == &irkod_keeper_i_id)
-		return &irkod_keeper_i;
-	else
-		return NULL;
+IRKOD_THING_BEGIN
+	IRKOD_THING_I(irkod_i_sequence)
+	IRKOD_THING_I(irkod_i_size)
+	IRKOD_THING_I(irkod_i_keeper)
+IRKOD_THING_WITH_CLEAR_END(irkod_list)
 
+void irkod_list_init(struct irkod_thing *it)
+{
+	assert(it);
+	struct irkod_list *object = IRKOD_THING_GET_OBJECT(irkod_list, it);
+
+	IRKOD_THING_INIT(object);
+	object->first = NULL;	
+	object->last = NULL;
+	object->sequence = NULL;
+	object->size = 0;	
 }
 
-void irkod_list_init(struct irkod_list *obj)
+void irkod_list_clear(struct irkod_thing *object)
 {
-	assert(obj);
+	assert(it);
+	struct irkod_list *object = IRKOD_THING_GET_OBJECT(irkod_list, it);
 
-	IRKOD_THING_INIT(obj);
-	obj->first = NULL;	
-	obj->last = NULL;
-	obj->sequence = NULL;
-	obj->size = 0;	
-}
-
-void irkod_list_clear(struct irkod_list *list)
-{
-	assert(list);
-
-	while(list->first)
-		irkod_node_remove(list->first);
+	while(object->first)
+		irkod_node_remove(object->first);
 }
 
 void irkod_list_append(struct irkod_list *list, struct irkod_node *node)
@@ -106,7 +96,7 @@ size_t irkod_list_get_size(const struct irkod_list *list)
 	return list->size;
 }
 
-void irkod_sequence_i_reset(struct irkod_thing *it)
+void irkod_i_sequence__reset(struct irkod_thing *it)
 {
 	assert(it);
 
@@ -115,7 +105,7 @@ void irkod_sequence_i_reset(struct irkod_thing *it)
 	list->sequence = list->first;
 }
 
-int irkod_sequence_i_peek(struct irkod_thing *it, void **object)
+int irkod_i_sequence__peek(struct irkod_thing *it, void **object)
 {
 	assert(it);
 	assert(object);
@@ -129,7 +119,7 @@ int irkod_sequence_i_peek(struct irkod_thing *it, void **object)
 	return 1;
 }
 
-void irkod_sequence_i_next(struct irkod_thing *it)
+void irkod_i_sequence__next(struct irkod_thing *it)
 {
 	assert(it);
 
@@ -140,7 +130,7 @@ void irkod_sequence_i_next(struct irkod_thing *it)
 
 }
 
-size_t irkod_size_i_get(const struct irkod_thing *it)
+size_t irkod_i_size__get(const struct irkod_thing *it)
 {
 	assert(it);
 	const struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
@@ -148,7 +138,7 @@ size_t irkod_size_i_get(const struct irkod_thing *it)
 	return list->size;
 }
 
-void irkod_keeper_i_add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM)
+void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM)
 {
 	IRKOD_FAIL_NEXT;
 
@@ -166,7 +156,7 @@ void irkod_keeper_i_add(struct irkod_thing *it, struct irkod_node *node, IRKOD_F
 	irkod_list_append(list, node);
 }
 
-void irkod_keeper_i_clear(struct irkod_thing *it)
+void irkod_i_keeper__clear(struct irkod_thing *it)
 {
 	assert(it);
 

@@ -63,7 +63,7 @@ it->data->attach((it), fail_node)
 it->data->detach(it)
 
 #define IRKOD_THING_NEW_DECLARE(type) \
-struct type *type ## _new(struct irkod_fail_node *irkod_fail_node)
+struct irkod_thing *type ## _new(struct irkod_fail_node *irkod_fail_node)
 
 #define IRKOD_THING_DECLARE(type) \
 IRKOD_THING_NEW_DECLARE(type)
@@ -105,7 +105,7 @@ static struct irkod_thing_data irkod_thing_data = \
 }; 
 
 #define IRKOD_THING_NEW_DEFINE(type) \
-struct type * \
+struct irkod_thing * \
 type ## _new(IRKOD_FAIL_PARAM) \
 { \
 	IRKOD_FAIL_NEXT_WITH_RESULT(NULL); \
@@ -119,7 +119,7 @@ type ## _new(IRKOD_FAIL_PARAM) \
 	} \
 \
 	object->irkod_thing.attach_count = 1; \
-	return object; \
+	return IRKOD_THING(object); \
 }
 
 #define IRKOD_THING_ATTACH_DEFINE \
@@ -160,7 +160,7 @@ irkod_thing_detach(struct irkod_thing *it) \
 \
 	if(!--it->attach_count) \
 	{ \
-		type ## _clear(IRKOD_THING_GET_OBJECT(type, it)); \
+		type ## _clear(it); \
 		free(IRKOD_THING_GET_OBJECT(type, it)); \
 	} \
 }

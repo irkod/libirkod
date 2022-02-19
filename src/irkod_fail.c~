@@ -146,7 +146,7 @@ irkod_fail_nodes_print(struct irkod_fail_node *object, FILE *file)
 
 			if(!irkod_fail_node.file)
 			{
-				dump = irkod_str_geti(text)->get(text);
+				dump = irkod_i_str_geti(text)->get(text);
 
 				if(!dump)
 					dump = "";

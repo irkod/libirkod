@@ -1,8 +1,8 @@
-#ifndef IRKOD_THING_TEXT_CANVAS_H
-#define IRKOD_THING_TEXT_CANVAS_H
+#ifndef IRKOD_TEXT_CANVAS_H
+#define IRKOD_TEXT_CANVAS_H
 
 #include <stddef.h>
-#include "irkod/thing/thing.h"
+#include <irkod/thing.h>
 
 struct irkod_text_canvas
 {
@@ -16,5 +16,5 @@ struct irkod_text_canvas
 
 void irkod_text_canvas_init(struct irkod_text_canvas *object);
 void irkod_text_canvas_clear(struct irkod_text_canvas *object);
-IRKOD_THING_DECLARE_FUNCTION_NEW(irkod_text_canvas);
-#endif /* !IRKOD_THING_TEXT_CANVAS_H */
+IRKOD_THING_DECLARE(irkod_text_canvas);
+#endif /* !IRKOD_TEXT_CANVAS_H */

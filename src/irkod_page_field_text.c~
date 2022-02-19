@@ -46,25 +46,28 @@ IRKOD_THING_BEGIN
 	IRKOD_THING_I(irkod_i_dump)
 IRKOD_THING_WITH_CLEAR_END(irkod_page_field_text)
 
-void irkod_page_field_text_init(struct irkod_page_field_text *object, const char *text, IRKOD_FAIL_PARAM)
+void irkod_page_field_text_init(struct irkod_thing *it, const char *text, IRKOD_FAIL_PARAM)
 {
 	IRKOD_FAIL_NEXT;
 
-	assert(object);
+	assert(it);
 	
+	struct irkod_page_field_text *object = IRKOD_THING_GET_OBJECT(irkod_page_field_text, it);
+
 	IRKOD_THING_INIT(object);
 	irkod_grid_field_data_init(&object->grid_field_data, IRKOD_THING(object));
-	irkod_text_init_copy(&object->text, text, IRKOD_FAIL);
+	irkod_text_init_copy(IRKOD_THING(&object->text), text, IRKOD_FAIL);
 	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 	
 	object->id = "";
 }
 
-void irkod_page_field_text_clear(struct irkod_page_field_text *object)
+void irkod_page_field_text_clear(struct irkod_thing *it)
 {
-	assert(object);
+	assert(it);
+	struct irkod_page_field_text *object = IRKOD_THING_GET_OBJECT(irkod_page_field_text, it);
 
-	irkod_text_clear(&object->text);
+	irkod_text_clear(IRKOD_THING(&object->text));
 }
 
 	void 
@@ -119,11 +122,11 @@ struct irkod_thing *irkod_i_dump__get(void *it, void *data, IRKOD_FAIL_PARAM)
 	
 	struct irkod_page_field_text *object = IRKOD_THING_GET_OBJECT(irkod_page_field_text, it);
 
-	struct irkod_text *text = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *text = irkod_text_new(IRKOD_FAIL);
 	IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
 	
 	irkod_text_init_mprintf(text, IRKOD_FAIL,
-		"irkod_page_filed_text{id=\"%s\" ",
+		"irkod_page_field_text{id=\"%s\" ",
 	       	object->id);
 	IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
 	

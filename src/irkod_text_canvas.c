@@ -50,9 +50,12 @@ IRKOD_THING_BEGIN
 	IRKOD_THING_I(irkod_i_row_cursor)
 IRKOD_THING_WITH_CLEAR_END(irkod_text_canvas)
 
-void irkod_text_canvas_init(struct irkod_text_canvas *object)
+void irkod_text_canvas_init(struct irkod_thing *it)
 {
-	assert(object);
+	assert(it);
+	
+	struct irkod_text_canvas *object = 
+		IRKOD_THING_GET_OBJECT(irkod_text_canvas, it);
 
 	IRKOD_THING_INIT(object);
 	object->row_count = 0;
@@ -62,14 +65,17 @@ void irkod_text_canvas_init(struct irkod_text_canvas *object)
 	object->mb_cur_max = MB_CUR_MAX;
 }
 
-void irkod_text_canvas_clear(struct irkod_text_canvas *object)
+void irkod_text_canvas_clear(struct irkod_thing *it)
 {
-	assert(object);
+	assert(it);
+	
+	struct irkod_text_canvas *object = 
+		IRKOD_THING_GET_OBJECT(irkod_text_canvas, it);
 
 	if(object->row_count > 0)
 	{
 		free(object->data);
-		irkod_text_canvas_init(object);	
+		irkod_text_canvas_init(it);	
 	}
 }
 

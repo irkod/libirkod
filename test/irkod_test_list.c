@@ -16,25 +16,25 @@ int main()
 	IRKOD_FAIL_NEXT_WITH_RESULT(0);
 
 	struct irkod_list l;
-	irkod_list_init(&l);
+	irkod_list_init(IRKOD_THING(&l));
 
-	struct irkod_text *t1 = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *t1 = irkod_text_new(IRKOD_FAIL);
 	irkod_text_init_copy(t1, "ala1", IRKOD_FAIL);
 
-	struct irkod_text *t2 = irkod_text_new(IRKOD_FAIL);
+	struct irkod_thing *t2 = irkod_text_new(IRKOD_FAIL);
 	irkod_text_init_copy(t2, "ala2", IRKOD_FAIL);
 	
-	struct irkod_text *t3 = irkod_text_new(IRKOD_FAIL);;
+	struct irkod_thing *t3 = irkod_text_new(IRKOD_FAIL);;
 	irkod_text_init_copy(t3, "ala3", IRKOD_FAIL);
 
 	struct irkod_node n1;
-	irkod_node_init(&n1, IRKOD_THING(t1));
+	irkod_node_init(&n1, t1);
 
 	struct irkod_node n2;
-	irkod_node_init(&n2, IRKOD_THING(t2));
+	irkod_node_init(&n2, t2);
 
 	struct irkod_node n3;
-	irkod_node_init(&n3, IRKOD_THING(t3));
+	irkod_node_init(&n3, t3);
 
 
 	irkod_list_append(&l, &n1);

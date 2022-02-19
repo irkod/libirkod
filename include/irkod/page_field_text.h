@@ -15,8 +15,8 @@ struct irkod_page_field_text
 	IRKOD_THING_MEMBER;
 };
 
-void irkod_page_field_text_init(struct irkod_page_field_text *object, const char *text, IRKOD_FAIL_PARAM);
-void irkod_page_field_text_clear(struct irkod_page_field_text *object);
+void irkod_page_field_text_init(struct irkod_thing *it, const char *text, IRKOD_FAIL_PARAM);
+void irkod_page_field_text_clear(struct irkod_thing *it);
 
 IRKOD_THING_DECLARE(irkod_page_field_text);
 
