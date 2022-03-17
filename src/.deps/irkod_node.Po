@@ -3,9 +3,8 @@ irkod_node.o: irkod_node.c /usr/include/stdc-predef.h \
  /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
  /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
  /usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include/stddef.h \
- ../include/irkod/node.h ../include/irkod/list.h ../include/irkod/thing.h \
- /usr/include/malloc.h /usr/include/stdio.h \
- /usr/include/bits/libc-header-start.h \
+ ../include/irkod/node.h ../include/irkod/thing.h /usr/include/malloc.h \
+ /usr/include/stdio.h /usr/include/bits/libc-header-start.h \
  /usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include/stdarg.h \
  /usr/include/bits/types.h /usr/include/bits/timesize.h \
  /usr/include/bits/typesizes.h /usr/include/bits/time64.h \
@@ -32,7 +31,7 @@ irkod_node.o: irkod_node.c /usr/include/stdc-predef.h \
  ../include/irkod/common.h ../include/irkod/fail.h \
  ../include/irkod/fail_failure_and_details.h \
  ../include/irkod/fail_failure_attach_count.h \
- ../include/irkod/fail_failure_malloc.h
+ ../include/irkod/fail_failure_malloc.h ../include/irkod/list.h
 /usr/include/stdc-predef.h:
 /usr/include/assert.h:
 /usr/include/features.h:
@@ -43,7 +42,6 @@ irkod_node.o: irkod_node.c /usr/include/stdc-predef.h \
 /usr/include/gnu/stubs-64.h:
 /usr/lib64/gcc/x86_64-slackware-linux/11.2.0/include/stddef.h:
 ../include/irkod/node.h:
-../include/irkod/list.h:
 ../include/irkod/thing.h:
 /usr/include/malloc.h:
 /usr/include/stdio.h:
@@ -96,3 +94,4 @@ irkod_node.o: irkod_node.c /usr/include/stdc-predef.h \
 ../include/irkod/fail_failure_and_details.h:
 ../include/irkod/fail_failure_attach_count.h:
 ../include/irkod/fail_failure_malloc.h:
+../include/irkod/list.h:

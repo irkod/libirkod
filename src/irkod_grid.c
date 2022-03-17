@@ -74,11 +74,10 @@ void irkod_grid_traverse(struct irkod_thing *first_line, struct irkod_thing *las
 
 		for(;;)
 		{
-			void *peeked;
 			struct irkod_thing *field;
 			struct irkod_i_grid_field *i_field;
 
-			if(!i_sequence->peek(list, &peeked))
+			if(!i_sequence->peek(list, &field))
 			{
 				if(functors->back_line_functor)
 				{
@@ -103,8 +102,6 @@ void irkod_grid_traverse(struct irkod_thing *first_line, struct irkod_thing *las
 				continue;
 			}
 	
-			field = peeked;
-
 			if(functors->field_functor)
 			{
 				functors->field_functor(field, functors->field_data, IRKOD_FAIL);

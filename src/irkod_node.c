@@ -3,24 +3,23 @@
 #include <irkod/node.h>
 #include <irkod/list.h>
 
-void irkod_node_init(struct irkod_node *node, void *object)
+void irkod_node_init(struct irkod_node *node, struct irkod_thing *thing)
 {
 	assert(node);
-	assert(object);
+	assert(thing);
 
 	node->next = NULL;
 	node->previous = NULL;
 	node->list = NULL;
-	node->object = object;
+	node->thing = thing;
 }
 
-void *irkod_node_get_object(const struct irkod_node *node)
-	
+struct irkod_thing *irkod_node_get_thing(const struct irkod_node *node)
 {
 	assert(node);
-	assert(node->object);
+	assert(node->thing);
 
-	return node->object;
+	return node->thing;
 }
 
 void irkod_node_append(struct irkod_node *node, struct irkod_node *next)
@@ -49,7 +48,7 @@ void irkod_node_append(struct irkod_node *node, struct irkod_node *next)
 	assert(node->list->size);
 }
 
-void *irkod_node_remove(struct irkod_node *node)
+struct irkod_thing *irkod_node_remove(struct irkod_node *node)
 {
 	assert(node);
 	assert(node->list);
@@ -99,6 +98,6 @@ void *irkod_node_remove(struct irkod_node *node)
 	--node->list->size;
 
 	node->list = NULL;
-	return node->object;
+	return node->thing;
 }
 

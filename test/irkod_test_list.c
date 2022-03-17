@@ -92,12 +92,10 @@ void dump3(struct irkod_list *l, IRKOD_FAIL_PARAM)
 	
 	printf("%d {\n", irkod_i_size_geti(t)->get(t));
 
-	void *peeked;
 	struct irkod_thing *it;
 
-	while(i_sequence->peek(t, &peeked))
+	while(i_sequence->peek(t, &it))
 	{
-		it = peeked;
 		printf("%s\n", irkod_i_str_geti(it)->get(it));
 		i_sequence->next(t);
 	}

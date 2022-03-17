@@ -8,7 +8,7 @@ IRKOD_THING_DECLARE_I_ID(irkod_i_sequence);
 struct irkod_i_sequence
 {
 	void (*reset)(struct irkod_thing *it);
-	int (*peek)(struct irkod_thing *it, void **object);
+	int (*peek)(struct irkod_thing *it, struct irkod_thing **thing);
 	void (*next)(struct irkod_thing *it);
 };
 

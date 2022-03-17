@@ -28,13 +28,13 @@ int main()
 	irkod_text_init_copy(t3, "ala3", IRKOD_FAIL);
 
 	struct irkod_node n1;
-	irkod_node_init(&n1, IRKOD_THING(t1));
+	irkod_node_init(&n1, t1);
 
 	struct irkod_node n2;
-	irkod_node_init(&n2, IRKOD_THING(t2));
+	irkod_node_init(&n2, t2);
 
 	struct irkod_node n3;
-	irkod_node_init(&n3, IRKOD_THING(t3));
+	irkod_node_init(&n3, t3);
 
 
 	irkod_list_append(&l, &n1);

@@ -169,12 +169,11 @@ struct irkod_thing *irkod_i_dump__get(void *it, void *data, IRKOD_FAIL_PARAM)
 		struct irkod_thing *fields = irkod_i_grid_line__get_fields(it, d);
 		struct irkod_i_sequence *i_sequence = irkod_i_sequence_geti(fields);
 
-		void *peeked;
+		struct irkod_thing *field;
 		const char *separator = "";
 
-		for(i_sequence->reset(fields); i_sequence->peek(fields, &peeked); i_sequence->next(fields))
+		for(i_sequence->reset(fields); i_sequence->peek(fields, &field); i_sequence->next(fields))
 		{
-			struct irkod_thing *field = peeked;
 			struct irkod_i_id *i_id = irkod_i_id_geti(field);
 			
 			i_str_owner->append_mprintf(text, IRKOD_FAIL, "%s%s", separator, i_id->get(field));
