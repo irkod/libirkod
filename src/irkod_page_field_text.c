@@ -126,7 +126,7 @@ struct irkod_thing *irkod_i_dump__get(void *it, void *data, IRKOD_FAIL_PARAM)
 	IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
 	
 	irkod_text_init_mprintf(text, IRKOD_FAIL,
-		"irkod_page_field_text{id=\"%s\" ",
+		"irkod_page_field_text{id=\"%s\"",
 	       	object->id);
 	IRKOD_FAIL_RETURN_RESULT_ON_CALL_FAILURE(NULL);
 	

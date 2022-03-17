@@ -22,6 +22,8 @@ static void irkod_i_str_owner__append(struct irkod_thing *it, const char *str, I
 static void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...);
 static int irkod_i_str_owner__owns(struct irkod_thing *it);
 
+static void append(struct irkod_thing *it, const char *str, size_t size, IRKOD_FAIL_PARAM);
+
 static struct irkod_i_str irkod_i_str =
 {
 	irkod_i_str__get
@@ -194,29 +196,9 @@ void irkod_i_str_owner__append(struct irkod_thing *it, const char *str, IRKOD_FA
 
 	assert(it);
 	assert(str);
-
-	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
-
-	size_t my_size = strlen(object->str);
-	size_t str_size = strlen(str);
-
-	if((size_t)-2 - my_size < str_size)
-	{
-		IRKOD_FAIL_SET(irkod_fail_failure_malloc());
-		return;
-	}
-
-	char *new_str = malloc(my_size + str_size + 1);
-	IRKOD_FAIL_RETURN_ON_MALLOC_FAILURE(new_str);
-
-	strcpy(new_str, object->str);
-	strcat(new_str, str);
-
-	if(object->owns)
-		free(object->str);
-
-	object->str = new_str;
-	object->owns = 1;
+	
+	append(it, str, strlen(str), IRKOD_FAIL);
+	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 }
 
 void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM, const char *format, ...)
@@ -240,10 +222,39 @@ void irkod_i_str_owner__append_mprintf(struct irkod_thing *it, IRKOD_FAIL_PARAM,
 
 	IRKOD_FAIL_RETURN_ON_MALLOC_FAILURE(str);
 
-	irkod_i_str_owner__append(it, str, IRKOD_FAIL);
+	append(it, str, size, IRKOD_FAIL);
 		
 	free(str);
 
 	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
 }
 
+void append(struct irkod_thing *it, const char *str, size_t size, IRKOD_FAIL_PARAM)
+{
+	IRKOD_FAIL_NEXT;
+
+	assert(it);
+	assert(str);
+
+	struct irkod_text *object = IRKOD_THING_GET_OBJECT(irkod_text, it);
+
+	size_t my_size = strlen(object->str);
+
+	if((size_t) - 2 - my_size < size)
+	{
+		IRKOD_FAIL_SET(irkod_fail_failure_malloc());
+		return;
+	}
+
+	char *new_str = malloc(my_size + size + 1);
+	IRKOD_FAIL_RETURN_ON_MALLOC_FAILURE(new_str);
+
+	strcpy(new_str, object->str);
+	strcat(new_str, str);
+
+	if(object->owns)
+		free(object->str);
+
+	object->str = new_str;
+	object->owns = 1;
+}

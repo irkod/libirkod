@@ -10,6 +10,25 @@
 const char *main_grid_module_id = "test_grid";
 IRKOD_FAIL_FILE(main_grid_module_id);
 
+void line_functor(struct irkod_thing *it, void *data, IRKOD_FAIL_PARAM);
+
+struct irkod_grid_traverse_functors functors =
+{
+	NULL, NULL,
+	line_functor, NULL,
+	NULL, NULL
+};
+
+void line_functor(struct irkod_thing *it, void *data, IRKOD_FAIL_PARAM)
+{
+	IRKOD_FAIL_NEXT;
+
+	struct irkod_thing *dump = irkod_i_dump_geti(it)->get(it, NULL, IRKOD_FAIL);
+
+	printf("line: %s\n", irkod_i_str_geti(dump)->get(dump));
+	IRKOD_THING_DETACH(dump);
+}
+
 int main()
 {
 	IRKOD_FAIL_ROOT;
@@ -55,11 +74,22 @@ int main()
 	printf("%s\n", irkod_i_str_geti(dump)->get(dump));
 	IRKOD_THING_DETACH(dump);
 
-	IRKOD_THING_DETACH(IRKOD_THING(line_a));
-	IRKOD_THING_DETACH(IRKOD_THING(line_b));
-	IRKOD_THING_DETACH(IRKOD_THING(line_c));
-	IRKOD_THING_DETACH(IRKOD_THING(line_d));
-	IRKOD_THING_DETACH(IRKOD_THING(text_A));
+	printf("TRAVERSING START\n");
+	printf("TRAVERSING START\n");
+	irkod_grid_traverse(line_a, line_d, irkod_direction_forward, &functors, IRKOD_FAIL);
+	printf("TRAVERSING\n");
+	irkod_grid_traverse(line_d, line_a, irkod_direction_backward, &functors, IRKOD_FAIL);
+	printf("TRAVERSING\n");
+	irkod_grid_traverse(line_b, line_c, irkod_direction_forward, &functors, IRKOD_FAIL);
+	printf("TRAVERSING\n");
+	irkod_grid_traverse(line_c, line_b, irkod_direction_backward, &functors, IRKOD_FAIL);
+	printf("TRAVERSING STOP\n");
+
+	IRKOD_THING_DETACH(line_a);
+	IRKOD_THING_DETACH(line_b);
+	IRKOD_THING_DETACH(line_c);
+	IRKOD_THING_DETACH(line_d);
+	IRKOD_THING_DETACH(text_A);
 
 	IRKOD_FAIL_PRINT(stdout);
 	
