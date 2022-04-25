@@ -5,9 +5,6 @@
 #include <irkod/i_sequence.h>
 #include <irkod/i_size.h>
 #include <irkod/i_keeper.h>
-#include <irkod/fail_failure_attach_count.h>
-#include <irkod/fail_failure_call.h>
-#include <irkod/fail_failure_malloc.h>
 
 IRKOD_FAIL_FILE(irkod_module_id);
 
@@ -15,7 +12,7 @@ static void irkod_i_sequence__reset(struct irkod_thing *it);
 static int irkod_i_sequence__peek(struct irkod_thing *it, struct irkod_thing **thing);
 static void irkod_i_sequence__next(struct irkod_thing *it);
 static size_t irkod_i_size__get(const struct irkod_thing *it);
-static void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM);
+static void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node);
 static void irkod_i_keeper__clear(struct irkod_thing *it);
 
 static struct irkod_i_sequence irkod_i_sequence =
@@ -139,17 +136,14 @@ size_t irkod_i_size__get(const struct irkod_thing *it)
 	return list->size;
 }
 
-void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM)
+void irkod_i_keeper__add(struct irkod_thing *it, struct irkod_node *node)
 {
 	IRKOD_FAIL_NEXT;
 
 	assert(it);
 	assert(node);
 
-	struct irkod_thing *thing = irkod_node_get_thing(node);
-	
-	IRKOD_THING_ATTACH(thing, IRKOD_FAIL);
-	IRKOD_FAIL_RETURN_ON_CALL_FAILURE;
+	irkod_thing_attach(irkod_node_get_thing(node));
 
 	struct irkod_list *list = IRKOD_THING_GET_OBJECT(irkod_list, it);
 

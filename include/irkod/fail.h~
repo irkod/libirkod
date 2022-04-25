@@ -3,7 +3,7 @@
 
 #include <stdio.h>
 #include <assert.h>
-#include <irkod/failure_and_details.h>
+#include <irkod/fail_failure_and_details.h>
 
 struct irkod_thing;
 

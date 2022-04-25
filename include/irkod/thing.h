@@ -25,7 +25,7 @@ struct irkod_thing_data
 {
 	const char *type_name;
 	struct irkod_thing_i_table_entry *i_table;
-	void (*attach)(struct irkod_thing *it, IRKOD_FAIL_PARAM);
+	void (*attach)(struct irkod_thing *it);
 	void (*detach)(struct irkod_thing *it);
 };
 
@@ -56,8 +56,8 @@ struct interface *interface ## _geti(struct irkod_thing *it) \
 	return (struct interface *) irkod_thing_get_i((it), &interface ## _i_id); \
 }
 
-#define IRKOD_THING_ATTACH(it, fail_node) \
-it->data->attach((it), fail_node)
+#define IRKOD_THING_ATTACH(it) \
+it->data->attach((it))
 
 #define IRKOD_THING_DETACH(it) \
 it->data->detach(it)
@@ -70,7 +70,7 @@ IRKOD_THING_NEW_DECLARE(type)
 
 
 #define IRKOD_THING_BEGIN \
-static void irkod_thing_attach(struct irkod_thing *it, IRKOD_FAIL_PARAM); \
+static void irkod_thing_attach(struct irkod_thing *it); \
 static void irkod_thing_detach(struct irkod_thing *it); \
 \
 static struct irkod_thing_i_table_entry irkod_i_table[] = \
@@ -124,20 +124,15 @@ type ## _new(IRKOD_FAIL_PARAM) \
 
 #define IRKOD_THING_ATTACH_DEFINE \
 static void  \
-irkod_thing_attach(struct irkod_thing *it, IRKOD_FAIL_PARAM) \
+irkod_thing_attach(struct irkod_thing *it) \
 { \
 	assert(it); \
 	assert(it->attach_count); \
 \
-	size_t count = it->attach_count + 1; \
+	++it->attach_count; \
 \
-	if(!count) \
-	{ \
-		IRKOD_FAIL_SET(irkod_fail_failure_attach_count()); \
-		return; \
-	} \
+	assert(it->attach_count); \
 \
-	it->attach_count = count; \
 } 
 
 #define IRKOD_THING_DETACH_DEFINE(type) \

@@ -10,7 +10,7 @@ IRKOD_THING_DECLARE_I_ID(irkod_i_keeper);
 struct irkod_i_keeper
 {
 	void (*add)(struct irkod_thing *it, struct irkod_node *node, IRKOD_FAIL_PARAM);
-	void (*detach_all)(struct irkod_thing *it);
+	void (*clear)(struct irkod_thing *it);
 };
 
 #endif /* !IRKOD_I_KEEPER_H */

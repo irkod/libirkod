@@ -33,8 +33,7 @@ irkod_list.o: irkod_list.c /usr/include/stdc-predef.h \
  ../include/irkod/fail_failure_and_details.h \
  ../include/irkod/fail_failure_attach_count.h \
  ../include/irkod/fail_failure_malloc.h ../include/irkod/i_sequence.h \
- ../include/irkod/i_size.h ../include/irkod/i_keeper.h \
- ../include/irkod/fail_failure_call.h
+ ../include/irkod/i_size.h ../include/irkod/i_keeper.h
 /usr/include/stdc-predef.h:
 /usr/include/assert.h:
 /usr/include/features.h:
@@ -101,4 +100,3 @@ irkod_list.o: irkod_list.c /usr/include/stdc-predef.h \
 ../include/irkod/i_sequence.h:
 ../include/irkod/i_size.h:
 ../include/irkod/i_keeper.h:
-../include/irkod/fail_failure_call.h:
