@@ -1,0 +1,17 @@
+irkod_page_line_data.o: irkod_page_line_data.c /usr/include/stdc-predef.h \
+ /usr/include/assert.h /usr/include/features.h /usr/include/sys/cdefs.h \
+ /usr/include/bits/wordsize.h /usr/include/bits/long-double.h \
+ /usr/include/gnu/stubs.h /usr/include/gnu/stubs-64.h \
+ ../include/irkod/page_line_data.h ../include/irkod/common.h \
+ ../include/irkod/page.h
+/usr/include/stdc-predef.h:
+/usr/include/assert.h:
+/usr/include/features.h:
+/usr/include/sys/cdefs.h:
+/usr/include/bits/wordsize.h:
+/usr/include/bits/long-double.h:
+/usr/include/gnu/stubs.h:
+/usr/include/gnu/stubs-64.h:
+../include/irkod/page_line_data.h:
+../include/irkod/common.h:
+../include/irkod/page.h:

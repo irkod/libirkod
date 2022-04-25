@@ -18,6 +18,7 @@
 #include <irkod/i_grid_line.h>
 #include <irkod/i_id.h>
 #include <irkod/i_keeper.h>
+#include <irkod/i_page_line.h>
 #include <irkod/i_row_cursor.h>
 #include <irkod/i_sequence.h>
 #include <irkod/i_size.h>
@@ -28,6 +29,7 @@
 #include <irkod/mprintf.h>
 #include <irkod/page_field_text.h>
 #include <irkod/page_line.h>
+#include <irkod/page_line_data.h>
 #include <irkod/text.h>
 #include <irkod/text_canvas.h>
 #include <irkod/thing.h>

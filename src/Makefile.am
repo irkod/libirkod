@@ -18,6 +18,7 @@ irkod_i_grid_field.c\
 irkod_i_grid_line.c\
 irkod_i_id.c\
 irkod_i_keeper.c\
+irkod_i_page_line.c\
 irkod_i_row_cursor.c\
 irkod_i_sequence.c\
 irkod_i_size.c\
@@ -29,6 +30,7 @@ irkod_mprintf.c\
 irkod_node.c\
 irkod_page_field_text.c\
 irkod_page_line.c\
+irkod_page_line_data.c\
 irkod_text.c\
 irkod_text_canvas.c\
 irkod_thing.c

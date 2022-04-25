@@ -114,12 +114,13 @@ am_libirkod_a_OBJECTS = irkod_fail.$(OBJEXT) \
 	irkod_i_dump.$(OBJEXT) irkod_i_fail_details.$(OBJEXT) \
 	irkod_i_grid_field.$(OBJEXT) irkod_i_grid_line.$(OBJEXT) \
 	irkod_i_id.$(OBJEXT) irkod_i_keeper.$(OBJEXT) \
-	irkod_i_row_cursor.$(OBJEXT) irkod_i_sequence.$(OBJEXT) \
-	irkod_i_size.$(OBJEXT) irkod_i_str.$(OBJEXT) \
-	irkod_i_str_owner.$(OBJEXT) irkod_i_text_canvas.$(OBJEXT) \
-	irkod_list.$(OBJEXT) irkod_mprintf.$(OBJEXT) \
-	irkod_node.$(OBJEXT) irkod_page_field_text.$(OBJEXT) \
-	irkod_page_line.$(OBJEXT) irkod_text.$(OBJEXT) \
+	irkod_i_page_line.$(OBJEXT) irkod_i_row_cursor.$(OBJEXT) \
+	irkod_i_sequence.$(OBJEXT) irkod_i_size.$(OBJEXT) \
+	irkod_i_str.$(OBJEXT) irkod_i_str_owner.$(OBJEXT) \
+	irkod_i_text_canvas.$(OBJEXT) irkod_list.$(OBJEXT) \
+	irkod_mprintf.$(OBJEXT) irkod_node.$(OBJEXT) \
+	irkod_page_field_text.$(OBJEXT) irkod_page_line.$(OBJEXT) \
+	irkod_page_line_data.$(OBJEXT) irkod_text.$(OBJEXT) \
 	irkod_text_canvas.$(OBJEXT) irkod_thing.$(OBJEXT)
 libirkod_a_OBJECTS = $(am_libirkod_a_OBJECTS)
 AM_V_P = $(am__v_P_$(V))
@@ -149,14 +150,15 @@ am__depfiles_remade = ./$(DEPDIR)/irkod_fail.Po \
 	./$(DEPDIR)/irkod_i_fail_details.Po \
 	./$(DEPDIR)/irkod_i_grid_field.Po \
 	./$(DEPDIR)/irkod_i_grid_line.Po ./$(DEPDIR)/irkod_i_id.Po \
-	./$(DEPDIR)/irkod_i_keeper.Po \
+	./$(DEPDIR)/irkod_i_keeper.Po ./$(DEPDIR)/irkod_i_page_line.Po \
 	./$(DEPDIR)/irkod_i_row_cursor.Po \
 	./$(DEPDIR)/irkod_i_sequence.Po ./$(DEPDIR)/irkod_i_size.Po \
 	./$(DEPDIR)/irkod_i_str.Po ./$(DEPDIR)/irkod_i_str_owner.Po \
 	./$(DEPDIR)/irkod_i_text_canvas.Po ./$(DEPDIR)/irkod_list.Po \
 	./$(DEPDIR)/irkod_mprintf.Po ./$(DEPDIR)/irkod_node.Po \
 	./$(DEPDIR)/irkod_page_field_text.Po \
-	./$(DEPDIR)/irkod_page_line.Po ./$(DEPDIR)/irkod_text.Po \
+	./$(DEPDIR)/irkod_page_line.Po \
+	./$(DEPDIR)/irkod_page_line_data.Po ./$(DEPDIR)/irkod_text.Po \
 	./$(DEPDIR)/irkod_text_canvas.Po ./$(DEPDIR)/irkod_thing.Po
 am__mv = mv -f
 COMPILE = $(CC) $(DEFS) $(DEFAULT_INCLUDES) $(INCLUDES) $(AM_CPPFLAGS) \
@@ -304,6 +306,7 @@ irkod_i_grid_field.c\
 irkod_i_grid_line.c\
 irkod_i_id.c\
 irkod_i_keeper.c\
+irkod_i_page_line.c\
 irkod_i_row_cursor.c\
 irkod_i_sequence.c\
 irkod_i_size.c\
@@ -315,6 +318,7 @@ irkod_mprintf.c\
 irkod_node.c\
 irkod_page_field_text.c\
 irkod_page_line.c\
+irkod_page_line_data.c\
 irkod_text.c\
 irkod_text_canvas.c\
 irkod_thing.c
@@ -382,6 +386,7 @@ include ./$(DEPDIR)/irkod_i_grid_field.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_grid_line.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_id.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_keeper.Po # am--include-marker
+include ./$(DEPDIR)/irkod_i_page_line.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_row_cursor.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_sequence.Po # am--include-marker
 include ./$(DEPDIR)/irkod_i_size.Po # am--include-marker
@@ -393,6 +398,7 @@ include ./$(DEPDIR)/irkod_mprintf.Po # am--include-marker
 include ./$(DEPDIR)/irkod_node.Po # am--include-marker
 include ./$(DEPDIR)/irkod_page_field_text.Po # am--include-marker
 include ./$(DEPDIR)/irkod_page_line.Po # am--include-marker
+include ./$(DEPDIR)/irkod_page_line_data.Po # am--include-marker
 include ./$(DEPDIR)/irkod_text.Po # am--include-marker
 include ./$(DEPDIR)/irkod_text_canvas.Po # am--include-marker
 include ./$(DEPDIR)/irkod_thing.Po # am--include-marker
@@ -558,6 +564,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_id.Po
 	-rm -f ./$(DEPDIR)/irkod_i_keeper.Po
+	-rm -f ./$(DEPDIR)/irkod_i_page_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_row_cursor.Po
 	-rm -f ./$(DEPDIR)/irkod_i_sequence.Po
 	-rm -f ./$(DEPDIR)/irkod_i_size.Po
@@ -569,6 +576,7 @@ distclean: distclean-am
 	-rm -f ./$(DEPDIR)/irkod_node.Po
 	-rm -f ./$(DEPDIR)/irkod_page_field_text.Po
 	-rm -f ./$(DEPDIR)/irkod_page_line.Po
+	-rm -f ./$(DEPDIR)/irkod_page_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_text.Po
 	-rm -f ./$(DEPDIR)/irkod_text_canvas.Po
 	-rm -f ./$(DEPDIR)/irkod_thing.Po
@@ -632,6 +640,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_i_grid_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_id.Po
 	-rm -f ./$(DEPDIR)/irkod_i_keeper.Po
+	-rm -f ./$(DEPDIR)/irkod_i_page_line.Po
 	-rm -f ./$(DEPDIR)/irkod_i_row_cursor.Po
 	-rm -f ./$(DEPDIR)/irkod_i_sequence.Po
 	-rm -f ./$(DEPDIR)/irkod_i_size.Po
@@ -643,6 +652,7 @@ maintainer-clean: maintainer-clean-am
 	-rm -f ./$(DEPDIR)/irkod_node.Po
 	-rm -f ./$(DEPDIR)/irkod_page_field_text.Po
 	-rm -f ./$(DEPDIR)/irkod_page_line.Po
+	-rm -f ./$(DEPDIR)/irkod_page_line_data.Po
 	-rm -f ./$(DEPDIR)/irkod_text.Po
 	-rm -f ./$(DEPDIR)/irkod_text_canvas.Po
 	-rm -f ./$(DEPDIR)/irkod_thing.Po

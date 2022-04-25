@@ -40,12 +40,13 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
  ../include/irkod/i_dump.h ../include/irkod/i_fail_details.h \
  ../include/irkod/i_grid_field.h ../include/irkod/i_grid_line.h \
  ../include/irkod/i_id.h ../include/irkod/i_keeper.h \
- ../include/irkod/i_row_cursor.h ../include/irkod/i_sequence.h \
- ../include/irkod/i_size.h ../include/irkod/i_str.h \
- ../include/irkod/i_str_owner.h ../include/irkod/i_text_canvas.h \
- ../include/irkod/mprintf.h ../include/irkod/page_field_text.h \
- ../include/irkod/text.h ../include/irkod/page_line.h \
- ../include/irkod/text_canvas.h
+ ../include/irkod/i_page_line.h ../include/irkod/i_row_cursor.h \
+ ../include/irkod/i_sequence.h ../include/irkod/i_size.h \
+ ../include/irkod/i_str.h ../include/irkod/i_str_owner.h \
+ ../include/irkod/i_text_canvas.h ../include/irkod/mprintf.h \
+ ../include/irkod/page_field_text.h ../include/irkod/text.h \
+ ../include/irkod/page_line.h ../include/irkod/page_line_data.h \
+ ../include/irkod/page.h ../include/irkod/text_canvas.h
 /usr/include/stdc-predef.h:
 /usr/include/malloc.h:
 /usr/include/features.h:
@@ -122,6 +123,7 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
 ../include/irkod/i_grid_line.h:
 ../include/irkod/i_id.h:
 ../include/irkod/i_keeper.h:
+../include/irkod/i_page_line.h:
 ../include/irkod/i_row_cursor.h:
 ../include/irkod/i_sequence.h:
 ../include/irkod/i_size.h:
@@ -132,4 +134,6 @@ irkod_test_fail.o: irkod_test_fail.c /usr/include/stdc-predef.h \
 ../include/irkod/page_field_text.h:
 ../include/irkod/text.h:
 ../include/irkod/page_line.h:
+../include/irkod/page_line_data.h:
+../include/irkod/page.h:
 ../include/irkod/text_canvas.h:
